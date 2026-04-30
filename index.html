@@ -309,7 +309,7 @@ else {
             <span class="local_icon">故</span>
         </span>
    <span data-name="groom_p_name">김상한</span>
-   <span class="gr_call_dot" >·</span>
+   <span class="call_dot">·</span>
    <span class="g_deceased_m em_ch ch_deceased" style='display:none'>
             <span class="local_icon">故</span>
         </span>
@@ -331,7 +331,7 @@ else {
               <span class="local_icon">故</span>
           </span>
     <span data-name="bride_p_name">김경학</span>
-    <span class="br_call_dot">·</span>
+    <span class="call_dot">·</span>
     <span class="b_deceased_m em_ch ch_deceased" style='display:none'>
               <span class="local_icon">故</span>
           </span>
@@ -1181,15 +1181,15 @@ a[data-id="bride_pa2_card"] {
 }
 
 
-/* 신부측 부모님 사이 점 표시 */
-.br_call_dot {
-  display: inline-block !important;
-  width: 3px !important;
-  height: 3px !important;
-  margin: 0 9px !important;
-  border-radius: 50% !important;
-  background: #525252 !important;
-  vertical-align: middle !important;
+/* 부모님 사이 점 표시 - 신랑/신부 동일 적용 */
+.call_dot {
+  display: inline !important;
+  margin: 0 6px !important;
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  vertical-align: baseline !important;
 }
 
 /* 클릭 버튼 안정화 */
