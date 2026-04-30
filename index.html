@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes"/>
-<meta property="og:url" content="wjkim">
+<meta property="og:url" content="https://wjkim1995.github.io/weddingcard/">
 <meta property="og:description" content="2026년 10월 11일 일요일">
 <meta property="og:title" content="저희, 결혼합니다">
-      <meta property="og:image" content="images/main.png">
+      <meta property="og:image" content="https://wjkim1995.github.io/weddingcard/images/main.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://directwedcard.com/card/img/favicon/favicon-16x16.png">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1088,11 +1088,11 @@ function flowerPopclose(){
   </div>
 </div>
 <script type="text/javascript">
-  // 카카오톡 공유 / 주소 복사 / 카카오내비 로컬 안정화 버전
+  // GitHub Pages용 주소 복사 / 카카오톡 공유 / 카카오내비 수정본
   var INVITE_URL = "https://wjkim1995.github.io/weddingcard/";
   var INVITE_TITLE = "저희, 결혼합니다";
   var INVITE_DESC = "2026년 10월 11일 PM 04시 00분";
-  var INVITE_IMAGE = "https://wjkim1995.github.io/weddingcard/wjkim/images/main.png";
+  var INVITE_IMAGE = "https://wjkim1995.github.io/weddingcard/images/main.png";
 
   try {
     if (window.Kakao && !Kakao.isInitialized()) {
@@ -1116,7 +1116,9 @@ function flowerPopclose(){
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(INVITE_URL).then(function(){
         alert("청첩장 주소가 복사되었습니다.");
-      }).
+      }).catch(function(){
+        copyTextFallback(INVITE_URL);
+        alert("청첩장 주소가 복사되었습니다.");
       });
     } else {
       copyTextFallback(INVITE_URL);
@@ -1135,36 +1137,60 @@ function flowerPopclose(){
             title: INVITE_TITLE,
             description: INVITE_DESC,
             imageUrl: INVITE_IMAGE,
-            link: { mobileWebUrl: INVITE_URL, webUrl: INVITE_URL }
+            link: {
+              mobileWebUrl: INVITE_URL,
+              webUrl: INVITE_URL
+            }
           },
           buttons: [{
             title: "청첩장 보기",
-            link: { mobileWebUrl: INVITE_URL, webUrl: INVITE_URL }
+            link: {
+              mobileWebUrl: INVITE_URL,
+              webUrl: INVITE_URL
+            }
           }]
         });
         return;
       }
-    } catch(e) {}
-    copyInviteUrl();
+    } catch(e) {
+      console.log("Kakao Share 실패:", e);
+    }
+
+    // 카카오 개발자 도메인 제한으로 실패할 경우: 모바일 공유창 또는 주소 복사로 대체
+    if (navigator.share) {
+      navigator.share({
+        title: INVITE_TITLE,
+        text: INVITE_DESC,
+        url: INVITE_URL
+      }).catch(function(){
+        copyInviteUrl();
+      });
+    } else {
+      copyInviteUrl();
+    }
   }
 
-function openNavi(){
-  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  function openNavi(){
+    try {
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile && window.Kakao && Kakao.Navi) {
+        Kakao.Navi.start({
+          name: "빌라드지디 수서",
+          x: 127.115099679441,
+          y: 37.4741471468906,
+          coordType: "wgs84"
+        });
+        return;
+      }
+    } catch(e) {
+      console.log("Kakao Navi 실패:", e);
+    }
 
-  if (isMobile && window.Kakao && Kakao.Navi) {
-    Kakao.Navi.start({
-      name: "빌라드지디 수서",
-      x: 127.115099679441,
-      y: 37.4741471468906,
-      coordType: 'wgs84'
-    });
-  } else {
     window.open(
       "https://map.kakao.com/link/to/빌라드지디 수서,37.4741471468906,127.115099679441",
       "_blank"
     );
   }
-}
 </script>
   
 <style>
@@ -1201,10 +1227,6 @@ a[data-id="bride_pa2_card"] {
   text-align: center !important;
 }
 
-/* 작동 불안정한 외부 축하화환 버튼 숨김 */
-.market_wrap, #flower_pop {
-  display: none !important;
-}
 
 /* 방명록 버튼 가운데 정렬 */
 .guest_book_inner .book_btn {
