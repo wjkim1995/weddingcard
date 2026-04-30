@@ -1071,7 +1071,7 @@ function flowerPopclose(){
                               <div class="offset_10 offset">
   <div class="share_inner inner_padding">
           <span class="kakao_btn" onclick="shareKakao();">
-        <span class="local_icon">💬</span> <font id="kakao-link-btn">🌹카카오톡으로 공유하기🌹</font>
+        <span class="local_icon"></span> <font id="kakao-link-btn">🌹카카오톡으로 공유하기🌹</font>
       </span>
         <span class="url_btn" onclick="copyInviteUrl();">
        <font>🌼청첩장 주소 복사하기🌼</font>
@@ -1080,7 +1080,7 @@ function flowerPopclose(){
 </div>
                           </div>
                     <div class="skin_footer">
-  <span class="local_icon" style="font-size:12px;color:#999;">copyright</span>
+  <span class="local_icon" style="font-size:12px;color:#999;">copyright.wjkim</span>
 </div>
         </div>
 
@@ -1116,9 +1116,7 @@ function flowerPopclose(){
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(INVITE_URL).then(function(){
         alert("청첩장 주소가 복사되었습니다.");
-      }).catch(function(){
-        copyTextFallback(INVITE_URL);
-        alert("청첩장 주소가 복사되었습니다.");
+      }).
       });
     } else {
       copyTextFallback(INVITE_URL);
