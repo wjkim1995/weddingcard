@@ -10,7 +10,6 @@
 <meta name="referrer" content="no-referrer" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="format-detection" content="telephone=no">
-<link rel="manifest" href='data:application/manifest+json,{"name":"김원재 김민정 모바일 청첩장","short_name":"Wedding","start_url":".","display":"standalone","background_color":"#f9f7f4","theme_color":"#93729B","icons":[{"src":"images/main.png","sizes":"512x512","type":"image/png"}]}' />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes"/>
 <meta property="og:url" content="https://wjkim1995.github.io/weddingcard/">
 <meta property="og:description" content="2026년 10월 11일 일요일">
@@ -78,102 +77,6 @@ i[class^="xi-"]::before, i[class*=" xi-"]::before {content:"" !important;}
 .xi-check-circle::before {content:"✓" !important;}
 .xi-check-circle-o::before {content:"○" !important;}
 .xi-check-min::before {content:"✓" !important;}
-</style>
-
-<style id="custom_upgrade_style">
-/* ===== Custom Wedding Card Upgrade ===== */
-:root{--wc-main:#93729B;--wc-soft:#f2eef3;--wc-text:#525252;--wc-white:#fff;}
-html{scroll-behavior:smooth;}
-body{background:#f9f7f4;}
-.main_img_wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.06) 45%,rgba(0,0,0,.30));pointer-events:none;z-index:1;}
-.main_img_wrap .main_name,.main_img_wrap .main_b_txt,.main_img_wrap .gradient_top,.main_img_wrap .gradient_bottom{position:relative;z-index:2;}
-.wc_upgrade_section{padding:58px 28px;text-align:center;background:#fff;box-sizing:border-box;}
-.wc_upgrade_section:nth-of-type(even){background:#fbf8fb;}
-.wc_upgrade_title{font-family:JejuMyeongjo,serif!important;color:var(--wc-main)!important;font-size:1.25rem!important;margin:0 0 20px!important;letter-spacing:.04em;}
-.wc_love_quote{padding:34px 24px;background:#f9f7f4;text-align:center;line-height:1.9;font-size:.98rem!important;color:#666!important;}
-.wc_countdown_box{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:360px;margin:18px auto 0;}
-.wc_countdown_item{background:var(--wc-soft);border-radius:16px;padding:14px 4px;box-shadow:0 6px 18px rgba(147,114,155,.10);}
-.wc_countdown_num{display:block;color:var(--wc-main)!important;font-size:1.35rem!important;font-weight:700;font-family:Arial,sans-serif!important;}
-.wc_countdown_label{display:block;margin-top:5px;color:#777!important;font-size:.72rem!important;font-family:Arial,sans-serif!important;}
-.wc_story{max-width:330px;margin:0 auto;text-align:left;position:relative;}
-.wc_story::before{content:"";position:absolute;left:64px;top:8px;bottom:8px;width:1px;background:#dacdde;}
-.wc_story_item{display:grid;grid-template-columns:54px 1fr;gap:26px;position:relative;margin:22px 0;}
-.wc_story_year{color:var(--wc-main)!important;font-weight:bold!important;text-align:right;font-family:Arial,sans-serif!important;}
-.wc_story_text{background:#fff;border:1px solid #eee;border-radius:14px;padding:13px 14px;line-height:1.7;box-shadow:0 4px 16px rgba(0,0,0,.04);}
-.wc_dress_chips{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px;}
-.wc_chip{border:1px solid #ddd;border-radius:999px;padding:9px 14px;background:#fff;color:#666!important;font-size:.84rem!important;}
-.wc_faq{max-width:360px;margin:0 auto;text-align:left;}
-.wc_faq details{background:#fff;border:1px solid #eee;border-radius:14px;margin:10px 0;padding:0 15px;box-shadow:0 4px 14px rgba(0,0,0,.035);}
-.wc_faq summary{cursor:pointer;padding:15px 0;color:#555!important;font-weight:600;list-style:none;}
-.wc_faq summary::-webkit-details-marker{display:none;}
-.wc_faq summary::after{content:"+";float:right;color:var(--wc-main);font-size:1.1rem;}
-.wc_faq details[open] summary::after{content:"−";}
-.wc_faq p{margin:0 0 15px!important;line-height:1.7;color:#666!important;}
-.wc_map_buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 8px;}
-.wc_map_buttons a{display:block;border-radius:10px;background:#f5f1f6;padding:11px 4px;text-decoration:none;color:#5d4a63!important;font-size:.85rem!important;}
-.wc_float_menu{position:fixed;right:14px;bottom:84px;z-index:50;display:flex;flex-direction:column;gap:8px;}
-.wc_float_menu a,.wc_music_btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.16);font-size:18px!important;border:1px solid rgba(147,114,155,.18);}
-.wc_music_btn{position:fixed;right:14px;top:16px;z-index:55;cursor:pointer;color:#6d5274!important;}
-.wc_toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:rgba(50,50,50,.92);color:#fff!important;padding:12px 18px;border-radius:999px;z-index:999999;opacity:0;transition:.25s;pointer-events:none;max-width:82%;text-align:center;font-size:.86rem!important;}
-.wc_toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-.wc_lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:99999;align-items:center;justify-content:center;}
-.wc_lightbox.show{display:flex;}
-.wc_lightbox img{max-width:92vw;max-height:82vh;object-fit:contain;pointer-events:auto!important;}
-.wc_lightbox button{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:999px;width:42px;height:42px;font-size:24px;}
-.wc_lightbox_close{top:18px;right:18px}.wc_lightbox_prev{left:18px}.wc_lightbox_next{right:18px}
-.wc_petals{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden;}
-.wc_petal{position:absolute;top:-30px;animation:wcFall linear forwards;color:#f1c7d9;opacity:.75;text-shadow:0 1px 4px rgba(255,255,255,.6);}
-@keyframes wcFall{to{transform:translate3d(var(--x),105vh,0) rotate(360deg);opacity:0;}}
-@media(max-width:430px){.wc_upgrade_section{padding:50px 22px}.wc_countdown_box{gap:6px}.wc_countdown_num{font-size:1.15rem!important}.wc_float_menu{right:10px;bottom:76px}.wc_float_menu a,.wc_music_btn{width:38px;height:38px}.wc_map_buttons{grid-template-columns:1fr;}}
-</style>
-
-
-<style id="custom_cleanup_20260612">
-/* 정리본: 참석여부 팝업 겹침 방지 + 불필요 섹션 제거 */
-.wc_story_wrap,.wc_dress_wrap,.wc_love_quote{display:none!important;}
-.attend_black{z-index:99990!important;}
-.attend_pop_wrap{z-index:99991!important;position:fixed!important;inset:0!important;overflow-y:auto!important;background:#fff!important;padding-bottom:110px!important;box-sizing:border-box!important;}
-.attend_article{padding-bottom:130px!important;}
-#attend_sign{display:block!important;position:relative!important;z-index:99992!important;margin:30px auto 90px!important;width:calc(100% - 40px)!important;max-width:360px!important;box-sizing:border-box!important;}
-.share_wrap{position:relative!important;z-index:1!important;margin-top:34px!important;}
-.market_wrap{display:none!important;}
-.wc_float_menu{bottom:86px!important;}
-@media(max-width:430px){.attend_pop_wrap{padding-bottom:140px!important}.attend_article{padding-bottom:160px!important}#attend_sign{margin-bottom:120px!important}}
-</style>
-
-<style id="final_mobile_fix_20260612">
-/* 최종 수정: 달력 D-day 중복 제거, 카운트다운 위치/팝업/닫기/모바일 깨짐 보정 */
-.dday_inner.remain{display:none!important;}
-.wc_countdown_wrap{padding:24px 24px 48px!important;background:#fff!important;margin:0!important;}
-.wc_countdown_wrap .wc_upgrade_title{margin-bottom:8px!important;}
-.wc_countdown_wrap > p:not(.wc_upgrade_title){margin:0 0 8px!important;color:#777!important;}
-.wc_countdown_box{margin-top:14px!important;}
-
-/* 팝업 열릴 때 플로팅 메뉴가 위로 겹치지 않도록 */
-body.wc_popup_open .wc_float_menu,
-body.wc_popup_open .wc_music_btn{display:none!important;}
-
-/* 방명록 팝업 */
-.guest_black,.write_black,.del_black,.attend_black{display:none;}
-.guest_book_pop,.write_wrap,.del_wrap,.attend_pop_wrap{display:none;}
-.guest_book_pop.full{position:fixed!important;left:0!important;right:0!important;top:0!important;bottom:0!important;width:100vw!important;max-width:none!important;height:100dvh!important;transform:none!important;background:#fff!important;z-index:99992!important;overflow-y:auto!important;box-sizing:border-box!important;}
-.guest_book_pop .book_wrap{max-width:420px!important;margin:0 auto!important;min-height:100dvh!important;background:#fff!important;}
-.guest_book_pop .book_title{position:sticky!important;top:0!important;z-index:2!important;height:58px!important;line-height:58px!important;text-align:center!important;background:#93729B!important;color:#fff!important;margin:0!important;}
-.guest_book_pop .book_pop_close{position:absolute!important;right:18px!important;top:0!important;height:58px!important;line-height:58px!important;color:#fff!important;font-size:24px!important;cursor:pointer!important;}
-
-/* 참석여부 팝업: 회색 배경 위에 반쪽만 보이던 현상 방지 */
-.attend_black{position:fixed!important;inset:0!important;background:rgba(0,0,0,.45)!important;z-index:99990!important;}
-.attend_pop_wrap.full{position:fixed!important;left:0!important;right:0!important;top:0!important;bottom:0!important;width:100vw!important;max-width:none!important;height:100dvh!important;transform:none!important;background:#fff!important;z-index:99991!important;overflow-y:auto!important;padding:0 0 36px!important;box-sizing:border-box!important;}
-.attend_pop_wrap .attend_article{max-width:420px!important;margin:0 auto!important;background:#fff!important;min-height:100dvh!important;padding-bottom:60px!important;box-sizing:border-box!important;}
-.attend_pop_wrap .attend_tit{position:sticky!important;top:0!important;z-index:3!important;background:#fff!important;padding-top:12px!important;border-bottom:1px solid #eee!important;}
-.attend_pop_wrap .attend_close{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;font-size:28px!important;cursor:pointer!important;color:#555!important;}
-#attend_sign{position:relative!important;display:block!important;width:calc(100% - 40px)!important;max-width:360px!important;margin:28px auto 36px!important;z-index:1!important;background:#111!important;color:#fff!important;border-radius:8px!important;}
-.attend_check_wrap{padding-bottom:24px!important;}
-@media(max-width:430px){
-  .wc_float_menu{right:10px!important;bottom:74px!important;}
-  .wc_float_menu a,.wc_music_btn{width:42px!important;height:42px!important;}
-  .attend_pop_wrap .attend_article,.guest_book_pop .book_wrap{max-width:none!important;width:100%!important;}
-}
 </style>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
@@ -543,17 +446,18 @@ $(document).ready(function() {
   wdDday('2026-04-29','2026-10-11');
 });
 </script>
-
-<div class="wc_upgrade_section wc_countdown_wrap anchor_countdown">
-  <p class="wc_upgrade_title">Wedding Countdown</p>
-  <p>결혼식까지 남은 시간</p>
-  <div class="wc_countdown_box" aria-label="결혼식 카운트다운">
-    <div class="wc_countdown_item"><span id="wc_days" class="wc_countdown_num">-</span><span class="wc_countdown_label">DAYS</span></div>
-    <div class="wc_countdown_item"><span id="wc_hours" class="wc_countdown_num">-</span><span class="wc_countdown_label">HOURS</span></div>
-    <div class="wc_countdown_item"><span id="wc_minutes" class="wc_countdown_num">-</span><span class="wc_countdown_label">MIN</span></div>
-    <div class="wc_countdown_item"><span id="wc_seconds" class="wc_countdown_num">-</span><span class="wc_countdown_label">SEC</span></div>
+<div class="wc_countdown_wrap" id="wc_countdown_wrap">
+  <p class="wc_countdown_title">Wedding Day</p>
+  <p class="wc_countdown_date">2026.10.11 SUN · PM 04:00</p>
+  <div class="wc_countdown_box">
+    <div><strong id="wc_days">-</strong><span>Days</span></div>
+    <div><strong id="wc_hours">--</strong><span>Hours</span></div>
+    <div><strong id="wc_minutes">--</strong><span>Minutes</span></div>
+    <div><strong id="wc_seconds">--</strong><span>Seconds</span></div>
   </div>
-</div>                          </div>
+</div>
+
+                          </div>
                       <div class="album_wrap anchor_3 wrap_padding">
                               <div class="offset_6 offset">
                                                             <div class="album_inner skin_gallery_type album_show" id="gallery_type_1">
@@ -633,19 +537,7 @@ var swiper = new Swiper(".gallery1", {
   </script>
                 </div>
                           </div>
-                      
-
-<div class="wc_upgrade_section wc_faq_wrap anchor_faq">
-  <p class="wc_upgrade_title">FAQ</p>
-  <div class="wc_faq">
-    <details><summary>주차가 가능한가요?</summary><p>예식장 주차 안내에 따라 이용 가능하며, 당일 혼잡할 수 있어 여유 있게 도착 부탁드립니다.</p></details>
-    <details><summary>셔틀버스가 있나요?</summary><p>수서역과 빌라드지디 수서 간 셔틀버스가 예식일 10분 간격으로 운행됩니다.</p></details>
-    <details><summary>예식 시작 전 꼭 도착해야 하나요?</summary><p>예식 시작과 함께 특별한 뮤지컬 공연이 준비되어 있어 정시 전 도착해 주시면 감사하겠습니다.</p></details>
-    <details><summary>식사는 어디서 하나요?</summary><p>식사 장소 및 세부 안내는 당일 예식장 안내에 따라 이동해 주시면 됩니다.</p></details>
-  </div>
-</div>
-
-<div class="map_wrap anchor_5 wrap_padding">
+                      <div class="map_wrap anchor_5 wrap_padding">
                               <div class="offset_3 offset">
 <input type="hidden" id="wd_xpos" name="wd_xpos" value="127.115099679441" readonly="">
 <input type="hidden" id="wd_ypos" name="wd_ypos" value="37.4741471468906" readonly="">
@@ -654,7 +546,6 @@ var swiper = new Swiper(".gallery1", {
     <p data-name="card_hall" class="map_hall">빌라드지디 수서</p>
     <p data-name="card_hall_address" class="map_ad">서울특별시 강남구 밤고개로21길 79</p>
     <span data-name="card_hall_number" class="map_call">02-543-2555</span>
-    <div class="wc_map_buttons"><a href="https://map.kakao.com/link/to/빌라드지디 수서,37.4741471468906,127.115099679441" target="_blank" rel="noopener">카카오맵</a><a href="https://map.naver.com/p/search/빌라드지디 수서" target="_blank" rel="noopener">네이버지도</a><a href="https://apis.openapi.sk.com/tmap/app/routes?name=빌라드지디 수서&lon=127.115099679441&lat=37.4741471468906" target="_blank" rel="noopener">티맵</a></div>
         <p class="navi_in" onclick="openNavi();">
   <span class="local_icon">🚗</span>Kakao<span>navi</span>
 </p>
@@ -1367,198 +1258,110 @@ a[data-id="bride_pa2_card"] {
 </style>
 
 
-<div class="wc_float_menu wc_menu_hidden" aria-label="빠른 메뉴">
+<style id="mj_final_fix_style">
+/* ===== MJ final clean fix ===== */
+:root{--mj-main:#93729B;--mj-soft:#f2eef3;--mj-text:#525252;}
+html{scroll-behavior:smooth;}
+.dday_inner.remain{display:none!important;}
+.market_wrap{display:none!important;}
+.wc_countdown_wrap{background:#fff;text-align:center;padding:6px 24px 46px;box-sizing:border-box;}
+.wc_countdown_title{margin:0 0 6px!important;color:var(--mj-main)!important;font-size:1.15rem!important;letter-spacing:.04em;}
+.wc_countdown_date{margin:0 0 14px!important;color:#777!important;font-size:.88rem!important;}
+.wc_countdown_box{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:360px;margin:0 auto;}
+.wc_countdown_box div{background:var(--mj-soft);border-radius:15px;padding:13px 2px 11px;box-shadow:0 6px 18px rgba(147,114,155,.10);}
+.wc_countdown_box strong{display:block;color:var(--mj-main)!important;font-family:Arial,sans-serif!important;font-size:1.15rem!important;line-height:1.1;}
+.wc_countdown_box span{display:block;margin-top:5px;color:#777!important;font-family:Arial,sans-serif!important;font-size:.68rem!important;}
+
+/* floating quick menu: first screen hidden, popup open hidden */
+.mj_float_menu{position:fixed;right:12px;bottom:78px;z-index:80;display:flex;flex-direction:column;gap:9px;transition:opacity .25s ease,transform .25s ease;}
+.mj_float_menu a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.16);font-size:19px!important;border:1px solid rgba(147,114,155,.18);}
+.mj_float_menu.is-hidden,body.mj_popup_open .mj_float_menu{opacity:0!important;pointer-events:none!important;transform:translateX(30px)!important;}
+.mj_music_btn{position:fixed;right:12px;top:16px;z-index:75;width:42px;height:42px;border-radius:50%;border:1px solid rgba(147,114,155,.18);background:rgba(255,255,255,.94);box-shadow:0 4px 15px rgba(0,0,0,.16);color:#6d5274!important;font-size:18px!important;}
+body.mj_popup_open .mj_music_btn{display:none!important;}
+.mj_toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(18px);background:rgba(40,40,40,.92);color:#fff!important;padding:12px 18px;border-radius:999px;z-index:9999999;opacity:0;transition:.25s;pointer-events:none;max-width:82%;text-align:center;font-size:.86rem!important;line-height:1.5;}
+.mj_toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* 팝업 공통: 화면 깨짐 방지 */
+body.mj_popup_open{overflow:hidden!important;}
+.attend_black,.guest_black,.write_black,.del_black,.call_black{position:fixed!important;inset:0!important;background:rgba(0,0,0,.45)!important;z-index:99990!important;}
+.attend_pop_wrap.full,.guest_book_pop.full{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;transform:none!important;background:#fff!important;z-index:99991!important;overflow-y:auto!important;box-sizing:border-box!important;padding:0!important;}
+.attend_pop_wrap .attend_article,.guest_book_pop .book_wrap{width:100%!important;max-width:420px!important;margin:0 auto!important;background:#fff!important;min-height:100dvh!important;box-sizing:border-box!important;}
+.attend_pop_wrap .attend_tit{position:sticky!important;top:0!important;background:#fff!important;z-index:2!important;padding:12px 0 8px!important;border-bottom:1px solid #eee!important;}
+.attend_pop_wrap .attend_close,.guest_book_pop .book_pop_close,.call_pop_down .call_close{cursor:pointer!important;}
+.attend_pop_wrap .attend_close{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;font-size:28px!important;color:#555!important;}
+.attend_check_wrap{padding:14px 20px 42px!important;box-sizing:border-box!important;}
+#attend_sign{display:block!important;position:relative!important;z-index:2!important;width:calc(100% - 12px)!important;max-width:360px!important;margin:28px auto 34px!important;background:#111!important;color:#fff!important;border-radius:8px!important;box-sizing:border-box!important;text-align:center!important;}
+.guest_book_pop .book_title{position:sticky!important;top:0!important;z-index:2!important;height:58px!important;line-height:58px!important;margin:0!important;text-align:center!important;background:var(--mj-main)!important;color:#fff!important;}
+.guest_book_pop .book_pop_close{position:absolute!important;right:18px!important;top:0!important;height:58px!important;line-height:58px!important;color:#fff!important;font-size:24px!important;}
+.write_wrap,.del_wrap,.call_pop_down{z-index:99991!important;}
+.share_wrap{position:relative!important;z-index:1!important;margin-top:18px!important;}
+.share_inner{position:relative!important;z-index:1!important;}
+.share_inner span{display:block!important;text-align:center!important;position:relative!important;}
+@media(max-width:430px){
+  .attend_pop_wrap .attend_article,.guest_book_pop .book_wrap{max-width:none!important;}
+  .mj_float_menu a,.mj_music_btn{width:42px;height:42px;}
+  .wc_countdown_box strong{font-size:1.05rem!important;}
+}
+</style>
+
+<div class="mj_float_menu is-hidden" aria-label="빠른 메뉴">
   <a href="#invite_wrap" title="처음">🏠</a>
   <a href="javascript:void(0)" onclick="document.querySelector('.album_wrap')?.scrollIntoView({behavior:'smooth'});" title="앨범">📷</a>
   <a href="javascript:void(0)" onclick="document.querySelector('.map_wrap')?.scrollIntoView({behavior:'smooth'});" title="오시는 길">📍</a>
   <a href="javascript:void(0)" onclick="document.querySelector('.account_wrap')?.scrollIntoView({behavior:'smooth'});" title="계좌">💌</a>
   <a href="javascript:void(0)" onclick="document.querySelector('.attend_wrap')?.scrollIntoView({behavior:'smooth'});" title="참석여부">✓</a>
 </div>
-<button type="button" class="wc_music_btn" aria-label="배경음악 켜기/끄기">♪</button>
-<div class="wc_toast" id="wc_toast"></div>
-<div class="wc_lightbox" id="wc_lightbox" aria-hidden="true">
-  <button type="button" class="wc_lightbox_close" aria-label="닫기">×</button>
-  <button type="button" class="wc_lightbox_prev" aria-label="이전">‹</button>
-  <img src="" alt="웨딩 사진 크게 보기" id="wc_lightbox_img">
-  <button type="button" class="wc_lightbox_next" aria-label="다음">›</button>
-</div>
-<div class="wc_petals" id="wc_petals"></div>
-<script id="custom_upgrade_script">
+<button type="button" class="mj_music_btn" aria-label="음악 켜기/끄기">♪</button>
+<div class="mj_toast" id="mj_toast"></div>
+
+<script id="mj_final_fix_script">
 (function(){
-  var weddingDate = new Date('2026-10-11T16:00:00+09:00');
-  function pad(n){return String(n).padStart(2,'0');}
-  function updateCountdown(){
-    var diff = weddingDate - new Date();
-    if(diff < 0) diff = 0;
-    var days = Math.floor(diff / 86400000);
-    var hours = Math.floor(diff % 86400000 / 3600000);
-    var minutes = Math.floor(diff % 3600000 / 60000);
-    var seconds = Math.floor(diff % 60000 / 1000);
-    var el;
-    if(el=document.getElementById('wc_days')) el.textContent = days;
-    if(el=document.getElementById('wc_hours')) el.textContent = pad(hours);
-    if(el=document.getElementById('wc_minutes')) el.textContent = pad(minutes);
-    if(el=document.getElementById('wc_seconds')) el.textContent = pad(seconds);
-  }
-  updateCountdown(); setInterval(updateCountdown,1000);
+  var INVITE_URL2 = window.INVITE_URL || 'https://wjkim1995.github.io/weddingcard/';
+  var INVITE_TITLE2 = window.INVITE_TITLE || '저희, 결혼합니다';
+  var INVITE_DESC2 = window.INVITE_DESC || '2026년 10월 11일 PM 04시 00분';
+  function qs(s){return document.querySelector(s)}
+  function qsa(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+  function show(el){if(el) el.style.display='block'}
+  function hide(el){if(el) el.style.display='none'}
+  function isVisible(el){return !!(el && getComputedStyle(el).display !== 'none' && el.offsetParent !== null)}
+  function toast(msg){var t=qs('#mj_toast'); if(!t){alert(msg);return;} t.innerHTML=msg; t.classList.add('show'); clearTimeout(window.__mj_toast); window.__mj_toast=setTimeout(function(){t.classList.remove('show')},1800)}
+  window.mjToast=toast;
+  var nativeAlert=window.alert;
+  window.alert=function(msg){ if(String(msg).match(/복사|등록|완료/)) toast(String(msg)); else nativeAlert(msg); };
+  function copyTextFallback(text){var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta)}
+  window.copyInviteUrl=function(){var done=function(){toast('🌼 청첩장 주소가 복사되었습니다.')}; if(navigator.clipboard && window.isSecureContext){navigator.clipboard.writeText(INVITE_URL2).then(done).catch(function(){copyTextFallback(INVITE_URL2);done()})}else{copyTextFallback(INVITE_URL2);done()}};
+  window.shareKakao=function(){ if(navigator.share){navigator.share({title:INVITE_TITLE2,text:INVITE_DESC2,url:INVITE_URL2}).catch(function(){window.copyInviteUrl()})}else{window.copyInviteUrl()} };
 
-  window.wcToast = function(msg){
-    var t=document.getElementById('wc_toast'); if(!t){alert(msg);return;}
-    t.innerHTML=msg; t.classList.add('show'); clearTimeout(window.__wcToastTimer);
-    window.__wcToastTimer=setTimeout(function(){t.classList.remove('show');},1800);
-  };
-  var oldAlert = window.alert;
-  window.alert = function(msg){ if(String(msg).indexOf('복사')>-1 || String(msg).indexOf('등록')>-1){wcToast(msg);} else {oldAlert(msg);} };
-
-  function copyText(text,label){
-    if(!text || !String(text).trim()){wcToast('복사할 내용이 없습니다.');return;}
-    var done=function(){wcToast('✅ 복사되었습니다.<br>'+label);};
-    if(navigator.clipboard && window.isSecureContext){navigator.clipboard.writeText(text).then(done).catch(function(){copyTextFallback(text);done();});}
-    else{copyTextFallback(text);done();}
+  function openPopup(){document.body.classList.add('mj_popup_open')}
+  function closeAllPopups(){
+    qsa('.guest_black,.write_black,.del_black,.attend_black,.call_black,.guest_book_pop,.write_wrap,.del_wrap,.attend_pop_wrap,.call_pop_down').forEach(hide);
+    document.body.classList.remove('mj_popup_open');
   }
-  function getAccount(btn){
-    var box=btn.closest('.account_cover'); if(!box) return null;
-    var ps=box.querySelectorAll('.article1 p');
-    var bankNum=ps[0]?ps[0].innerText.trim():''; var name=ps[1]?ps[1].innerText.trim():'';
-    return {text:bankNum.replace(/\s+/g,' ')+' '+name, label:bankNum+'<br>'+name};
-  }
+  window.mjClosePopups=closeAllPopups;
   document.addEventListener('click',function(e){
-    var btn=e.target.closest('[id^="copybtn"]');
-    if(btn){e.preventDefault(); e.stopPropagation(); var a=getAccount(btn); if(a) copyText(a.text,a.label);}
+    if(e.target.closest('.check_attend')){setTimeout(function(){show(qs('.attend_black'));show(qs('.attend_pop_wrap'));openPopup()},0)}
+    if(e.target.closest('.book_open')){setTimeout(function(){show(qs('.guest_black'));show(qs('.guest_book_pop'));openPopup()},0)}
+    if(e.target.closest('.write_open')){setTimeout(function(){show(qs('.write_black'));show(qs('.write_wrap'));openPopup()},0)}
+    if(e.target.closest('.parents')){setTimeout(function(){show(qs('.call_black'));show(qs('.call_pop_down'));openPopup()},0)}
+    if(e.target.closest('.attend_close,.book_pop_close,.write_close,.call_close') || e.target.classList.contains('attend_black') || e.target.classList.contains('guest_black') || e.target.classList.contains('write_black') || e.target.classList.contains('call_black')){e.preventDefault();e.stopPropagation();closeAllPopups()}
   },true);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') closeAllPopups()});
+  setInterval(function(){
+    var any = qsa('.attend_pop_wrap,.guest_book_pop,.write_wrap,.del_wrap,.call_pop_down').some(isVisible);
+    document.body.classList.toggle('mj_popup_open', any);
+  },300);
 
-  document.querySelectorAll('img').forEach(function(img){img.setAttribute('loading','lazy'); img.setAttribute('decoding','async');});
+  function updateMenu(){var m=qs('.mj_float_menu'); if(!m)return; var hideMenu = window.scrollY < window.innerHeight*0.8 || document.body.classList.contains('mj_popup_open'); m.classList.toggle('is-hidden', hideMenu)}
+  window.addEventListener('scroll',updateMenu,{passive:true}); window.addEventListener('resize',updateMenu); setInterval(updateMenu,500); updateMenu();
 
-  // 랜덤 메인 이미지: 파일이 없으면 자동으로 기존 main.png 유지
-  var main=document.getElementById('skin_main_img');
-  if(main){
-    var candidates=['images/main.png','images/main1.png','images/main2.png','images/photo1.png','images/photo2.png'];
-    var pick=candidates[Math.floor(Math.random()*candidates.length)];
-    var test=new Image(); test.onload=function(){main.src=pick;}; test.src=pick;
-  }
+  var musicBtn=qs('.mj_music_btn'); if(musicBtn){musicBtn.addEventListener('click',function(){var bgm=qs('#skin_bgm'); if(!bgm)return; if(bgm.paused){bgm.play().then(function(){toast('배경음악 ON')}).catch(function(){toast('브라우저 정책상 버튼을 한 번 더 눌러주세요.')})}else{bgm.pause();toast('배경음악 OFF')}})}
 
-  var galleryImgs=Array.prototype.slice.call(document.querySelectorAll('.album_inner img'));
-  var lightbox=document.getElementById('wc_lightbox'), lightImg=document.getElementById('wc_lightbox_img'); var idx=0;
-  function showLight(i){ if(!galleryImgs.length) return; idx=(i+galleryImgs.length)%galleryImgs.length; lightImg.src=galleryImgs[idx].src; lightbox.classList.add('show'); lightbox.setAttribute('aria-hidden','false');}
-  galleryImgs.forEach(function(img,i){ img.style.cursor='zoom-in'; img.style.pointerEvents='auto'; img.addEventListener('click',function(){showLight(i);}); });
-  document.querySelector('.wc_lightbox_close').onclick=function(){lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden','true');};
-  document.querySelector('.wc_lightbox_prev').onclick=function(){showLight(idx-1);};
-  document.querySelector('.wc_lightbox_next').onclick=function(){showLight(idx+1);};
-  lightbox.addEventListener('click',function(e){if(e.target===lightbox) document.querySelector('.wc_lightbox_close').click();});
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){var target=new Date('2026-10-11T16:00:00+09:00').getTime(); var diff=Math.max(0,target-Date.now()); var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000); if(qs('#wc_days'))qs('#wc_days').textContent=d; if(qs('#wc_hours'))qs('#wc_hours').textContent=pad(h); if(qs('#wc_minutes'))qs('#wc_minutes').textContent=pad(m); if(qs('#wc_seconds'))qs('#wc_seconds').textContent=pad(s)}
+  tick(); setInterval(tick,1000);
 
-  var musicBtn=document.querySelector('.wc_music_btn');
-  musicBtn.addEventListener('click',function(){
-    var bgm=document.getElementById('skin_bgm'); if(!bgm) return;
-    if(bgm.paused){bgm.play().then(function(){musicBtn.textContent='♪'; wcToast('배경음악 ON');}).catch(function(){wcToast('브라우저 정책상 화면을 한 번 터치 후 재생됩니다.');});}
-    else{bgm.pause(); musicBtn.textContent='♩'; wcToast('배경음악 OFF');}
-  });
-
-  // 꽃잎 애니메이션
-  var petalWrap=document.getElementById('wc_petals');
-  function makePetal(){
-    if(!petalWrap) return; var s=document.createElement('span'); s.className='wc_petal'; s.textContent=Math.random()>.5?'♡':'✿';
-    s.style.left=(Math.random()*100)+'vw'; s.style.fontSize=(12+Math.random()*14)+'px'; s.style.setProperty('--x',(Math.random()*80-40)+'px');
-    s.style.animationDuration=(5+Math.random()*5)+'s'; petalWrap.appendChild(s); setTimeout(function(){s.remove();},10000);
-  }
-  for(var i=0;i<18;i++) setTimeout(makePetal,i*180);
-  var petalTimer=setInterval(makePetal,900); setTimeout(function(){clearInterval(petalTimer);},16000);
-
-
-
-  // GitHub Pages에서 더 안정적인 공유: 카카오 SDK 실패 시 모바일 기본 공유 또는 URL 복사
-  window.shareKakao = function(){
-    var shareData = { title: INVITE_TITLE || '저희, 결혼합니다', text: INVITE_DESC || '모바일 청첩장', url: INVITE_URL || location.href };
-    if(navigator.share){
-      navigator.share(shareData).catch(function(){ copyInviteUrl(); });
-    }else{
-      copyInviteUrl();
-    }
-  };
-
-  window.copyInviteUrl = function(){
-    var url = INVITE_URL || location.href;
-    var done = function(){ wcToast('🌼 청첩장 주소가 복사되었습니다.'); };
-    if(navigator.clipboard && window.isSecureContext){
-      navigator.clipboard.writeText(url).then(done).catch(function(){ copyTextFallback(url); done(); });
-    }else{
-      copyTextFallback(url); done();
-    }
-  };
-
-  // 스크롤 등장 효과
-  var observer=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity=1;en.target.style.transform='translateY(0)';}})},{threshold:.12});
-  document.querySelectorAll('.offset,.wc_upgrade_section').forEach(function(el){el.style.opacity=.001;el.style.transform='translateY(18px)';el.style.transition='opacity .8s ease, transform .8s ease';observer.observe(el);});
-})();
-</script>
-
-
-<script id="final_popup_countdown_fix_20260612">
-(function(){
-  function $all(sel){return Array.prototype.slice.call(document.querySelectorAll(sel));}
-  function show(el){ if(el) el.style.display='block'; }
-  function hide(el){ if(el) el.style.display='none'; }
-  function openPopup(){ document.body.classList.add('wc_popup_open'); }
-  function closePopup(){
-    $all('.guest_black,.write_black,.del_black,.attend_black,.guest_book_pop,.write_wrap,.del_wrap,.attend_pop_wrap').forEach(hide);
-    document.body.classList.remove('wc_popup_open');
-  }
-
-  document.addEventListener('click', function(e){
-    if(e.target.closest('.book_open')){ setTimeout(function(){ show(document.querySelector('.guest_black')); show(document.querySelector('.guest_book_pop')); openPopup(); },0); }
-    if(e.target.closest('.write_open')){ setTimeout(function(){ show(document.querySelector('.write_black')); show(document.querySelector('.write_wrap')); openPopup(); },0); }
-    if(e.target.closest('.check_attend')){ setTimeout(function(){ show(document.querySelector('.attend_black')); show(document.querySelector('.attend_pop_wrap')); openPopup(); },0); }
-    if(e.target.closest('.book_pop_close') || e.target.closest('.write_close') || e.target.closest('.attend_close') || e.target.classList.contains('guest_black') || e.target.classList.contains('write_black') || e.target.classList.contains('attend_black')){
-      e.preventDefault(); e.stopPropagation(); closePopup();
-    }
-  }, true);
-
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePopup(); });
-
-  // 기존 165일 고정 D-day는 숨기고, 카운트다운은 실제 현재시간 기준으로 계산
-  function pad(n){ return String(n).padStart(2,'0'); }
-  function updateWeddingCountdown(){
-    var target = new Date('2026-10-11T16:00:00+09:00');
-    var diff = target.getTime() - Date.now();
-    if(diff < 0) diff = 0;
-    var days = Math.floor(diff / 86400000);
-    var hours = Math.floor((diff % 86400000) / 3600000);
-    var minutes = Math.floor((diff % 3600000) / 60000);
-    var seconds = Math.floor((diff % 60000) / 1000);
-    var d=document.getElementById('wc_days'), h=document.getElementById('wc_hours'), m=document.getElementById('wc_minutes'), s=document.getElementById('wc_seconds');
-    if(d) d.textContent=days; if(h) h.textContent=pad(hours); if(m) m.textContent=pad(minutes); if(s) s.textContent=pad(seconds);
-  }
-  updateWeddingCountdown(); setInterval(updateWeddingCountdown, 1000);
-})();
-</script>
-
-
-<style id="wc_float_menu_scroll_fix_20260612">
-/* 첫 화면에서는 빠른 메뉴 숨김, 인사말 이후부터 표시 */
-.wc_float_menu{
-  transition: opacity .28s ease, transform .28s ease !important;
-}
-.wc_float_menu.wc_menu_hidden{
-  opacity:0!important;
-  pointer-events:none!important;
-  transform:translateX(28px)!important;
-}
-</style>
-<script id="wc_float_menu_scroll_script_20260612">
-(function(){
-  function updateFloatMenu(){
-    var menu=document.querySelector('.wc_float_menu');
-    if(!menu) return;
-    var threshold=window.innerHeight*0.8;
-    if(window.scrollY < threshold){
-      menu.classList.add('wc_menu_hidden');
-    }else{
-      menu.classList.remove('wc_menu_hidden');
-    }
-  }
-  window.addEventListener('scroll', updateFloatMenu, {passive:true});
-  window.addEventListener('resize', updateFloatMenu);
-  document.addEventListener('DOMContentLoaded', updateFloatMenu);
-  updateFloatMenu();
+  // 계좌 복사: alert 대신 토스트
+  document.addEventListener('click',function(e){var btn=e.target.closest('[id^="copybtn"]'); if(!btn)return; e.preventDefault(); e.stopPropagation(); var box=btn.closest('.account_cover'); if(!box)return; var ps=box.querySelectorAll('.article1 p'); var bank=ps[0]?ps[0].innerText.trim():''; var name=ps[1]?ps[1].innerText.trim():''; var text=(bank+' '+name).trim(); if(!text){toast('복사할 내용이 없습니다.');return} var done=function(){toast('✅ 복사되었습니다.<br>'+bank+'<br>'+name)}; if(navigator.clipboard && window.isSecureContext){navigator.clipboard.writeText(text).then(done).catch(function(){copyTextFallback(text);done()})}else{copyTextFallback(text);done()}},true);
 })();
 </script>
 
