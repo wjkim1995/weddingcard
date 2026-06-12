@@ -140,6 +140,41 @@ body{background:#f9f7f4;}
 .wc_float_menu{bottom:86px!important;}
 @media(max-width:430px){.attend_pop_wrap{padding-bottom:140px!important}.attend_article{padding-bottom:160px!important}#attend_sign{margin-bottom:120px!important}}
 </style>
+
+<style id="final_mobile_fix_20260612">
+/* 최종 수정: 달력 D-day 중복 제거, 카운트다운 위치/팝업/닫기/모바일 깨짐 보정 */
+.dday_inner.remain{display:none!important;}
+.wc_countdown_wrap{padding:24px 24px 48px!important;background:#fff!important;margin:0!important;}
+.wc_countdown_wrap .wc_upgrade_title{margin-bottom:8px!important;}
+.wc_countdown_wrap > p:not(.wc_upgrade_title){margin:0 0 8px!important;color:#777!important;}
+.wc_countdown_box{margin-top:14px!important;}
+
+/* 팝업 열릴 때 플로팅 메뉴가 위로 겹치지 않도록 */
+body.wc_popup_open .wc_float_menu,
+body.wc_popup_open .wc_music_btn{display:none!important;}
+
+/* 방명록 팝업 */
+.guest_black,.write_black,.del_black,.attend_black{display:none;}
+.guest_book_pop,.write_wrap,.del_wrap,.attend_pop_wrap{display:none;}
+.guest_book_pop.full{position:fixed!important;left:0!important;right:0!important;top:0!important;bottom:0!important;width:100vw!important;max-width:none!important;height:100dvh!important;transform:none!important;background:#fff!important;z-index:99992!important;overflow-y:auto!important;box-sizing:border-box!important;}
+.guest_book_pop .book_wrap{max-width:420px!important;margin:0 auto!important;min-height:100dvh!important;background:#fff!important;}
+.guest_book_pop .book_title{position:sticky!important;top:0!important;z-index:2!important;height:58px!important;line-height:58px!important;text-align:center!important;background:#93729B!important;color:#fff!important;margin:0!important;}
+.guest_book_pop .book_pop_close{position:absolute!important;right:18px!important;top:0!important;height:58px!important;line-height:58px!important;color:#fff!important;font-size:24px!important;cursor:pointer!important;}
+
+/* 참석여부 팝업: 회색 배경 위에 반쪽만 보이던 현상 방지 */
+.attend_black{position:fixed!important;inset:0!important;background:rgba(0,0,0,.45)!important;z-index:99990!important;}
+.attend_pop_wrap.full{position:fixed!important;left:0!important;right:0!important;top:0!important;bottom:0!important;width:100vw!important;max-width:none!important;height:100dvh!important;transform:none!important;background:#fff!important;z-index:99991!important;overflow-y:auto!important;padding:0 0 36px!important;box-sizing:border-box!important;}
+.attend_pop_wrap .attend_article{max-width:420px!important;margin:0 auto!important;background:#fff!important;min-height:100dvh!important;padding-bottom:60px!important;box-sizing:border-box!important;}
+.attend_pop_wrap .attend_tit{position:sticky!important;top:0!important;z-index:3!important;background:#fff!important;padding-top:12px!important;border-bottom:1px solid #eee!important;}
+.attend_pop_wrap .attend_close{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;font-size:28px!important;cursor:pointer!important;color:#555!important;}
+#attend_sign{position:relative!important;display:block!important;width:calc(100% - 40px)!important;max-width:360px!important;margin:28px auto 36px!important;z-index:1!important;background:#111!important;color:#fff!important;border-radius:8px!important;}
+.attend_check_wrap{padding-bottom:24px!important;}
+@media(max-width:430px){
+  .wc_float_menu{right:10px!important;bottom:74px!important;}
+  .wc_float_menu a,.wc_music_btn{width:42px!important;height:42px!important;}
+  .attend_pop_wrap .attend_article,.guest_book_pop .book_wrap{max-width:none!important;width:100%!important;}
+}
+</style>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <!-- Google Tag Manager (noscript) -->
@@ -508,7 +543,17 @@ $(document).ready(function() {
   wdDday('2026-04-29','2026-10-11');
 });
 </script>
-                          </div>
+
+<div class="wc_upgrade_section wc_countdown_wrap anchor_countdown">
+  <p class="wc_upgrade_title">Wedding Countdown</p>
+  <p>결혼식까지 남은 시간</p>
+  <div class="wc_countdown_box" aria-label="결혼식 카운트다운">
+    <div class="wc_countdown_item"><span id="wc_days" class="wc_countdown_num">-</span><span class="wc_countdown_label">DAYS</span></div>
+    <div class="wc_countdown_item"><span id="wc_hours" class="wc_countdown_num">-</span><span class="wc_countdown_label">HOURS</span></div>
+    <div class="wc_countdown_item"><span id="wc_minutes" class="wc_countdown_num">-</span><span class="wc_countdown_label">MIN</span></div>
+    <div class="wc_countdown_item"><span id="wc_seconds" class="wc_countdown_num">-</span><span class="wc_countdown_label">SEC</span></div>
+  </div>
+</div>                          </div>
                       <div class="album_wrap anchor_3 wrap_padding">
                               <div class="offset_6 offset">
                                                             <div class="album_inner skin_gallery_type album_show" id="gallery_type_1">
@@ -589,16 +634,7 @@ var swiper = new Swiper(".gallery1", {
                 </div>
                           </div>
                       
-<div class="wc_upgrade_section wc_countdown_wrap anchor_countdown">
-  <p class="wc_upgrade_title">Wedding Countdown</p>
-  <p>결혼식까지 남은 시간</p>
-  <div class="wc_countdown_box" aria-label="결혼식 카운트다운">
-    <div class="wc_countdown_item"><span id="wc_days" class="wc_countdown_num">-</span><span class="wc_countdown_label">DAYS</span></div>
-    <div class="wc_countdown_item"><span id="wc_hours" class="wc_countdown_num">-</span><span class="wc_countdown_label">HOURS</span></div>
-    <div class="wc_countdown_item"><span id="wc_minutes" class="wc_countdown_num">-</span><span class="wc_countdown_label">MIN</span></div>
-    <div class="wc_countdown_item"><span id="wc_seconds" class="wc_countdown_num">-</span><span class="wc_countdown_label">SEC</span></div>
-  </div>
-</div>
+
 <div class="wc_upgrade_section wc_faq_wrap anchor_faq">
   <p class="wc_upgrade_title">FAQ</p>
   <div class="wc_faq">
@@ -1331,7 +1367,7 @@ a[data-id="bride_pa2_card"] {
 </style>
 
 
-<div class="wc_float_menu" aria-label="빠른 메뉴">
+<div class="wc_float_menu wc_menu_hidden" aria-label="빠른 메뉴">
   <a href="#invite_wrap" title="처음">🏠</a>
   <a href="javascript:void(0)" onclick="document.querySelector('.album_wrap')?.scrollIntoView({behavior:'smooth'});" title="앨범">📷</a>
   <a href="javascript:void(0)" onclick="document.querySelector('.map_wrap')?.scrollIntoView({behavior:'smooth'});" title="오시는 길">📍</a>
@@ -1452,6 +1488,77 @@ a[data-id="bride_pa2_card"] {
   // 스크롤 등장 효과
   var observer=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity=1;en.target.style.transform='translateY(0)';}})},{threshold:.12});
   document.querySelectorAll('.offset,.wc_upgrade_section').forEach(function(el){el.style.opacity=.001;el.style.transform='translateY(18px)';el.style.transition='opacity .8s ease, transform .8s ease';observer.observe(el);});
+})();
+</script>
+
+
+<script id="final_popup_countdown_fix_20260612">
+(function(){
+  function $all(sel){return Array.prototype.slice.call(document.querySelectorAll(sel));}
+  function show(el){ if(el) el.style.display='block'; }
+  function hide(el){ if(el) el.style.display='none'; }
+  function openPopup(){ document.body.classList.add('wc_popup_open'); }
+  function closePopup(){
+    $all('.guest_black,.write_black,.del_black,.attend_black,.guest_book_pop,.write_wrap,.del_wrap,.attend_pop_wrap').forEach(hide);
+    document.body.classList.remove('wc_popup_open');
+  }
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('.book_open')){ setTimeout(function(){ show(document.querySelector('.guest_black')); show(document.querySelector('.guest_book_pop')); openPopup(); },0); }
+    if(e.target.closest('.write_open')){ setTimeout(function(){ show(document.querySelector('.write_black')); show(document.querySelector('.write_wrap')); openPopup(); },0); }
+    if(e.target.closest('.check_attend')){ setTimeout(function(){ show(document.querySelector('.attend_black')); show(document.querySelector('.attend_pop_wrap')); openPopup(); },0); }
+    if(e.target.closest('.book_pop_close') || e.target.closest('.write_close') || e.target.closest('.attend_close') || e.target.classList.contains('guest_black') || e.target.classList.contains('write_black') || e.target.classList.contains('attend_black')){
+      e.preventDefault(); e.stopPropagation(); closePopup();
+    }
+  }, true);
+
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePopup(); });
+
+  // 기존 165일 고정 D-day는 숨기고, 카운트다운은 실제 현재시간 기준으로 계산
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function updateWeddingCountdown(){
+    var target = new Date('2026-10-11T16:00:00+09:00');
+    var diff = target.getTime() - Date.now();
+    if(diff < 0) diff = 0;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+    var d=document.getElementById('wc_days'), h=document.getElementById('wc_hours'), m=document.getElementById('wc_minutes'), s=document.getElementById('wc_seconds');
+    if(d) d.textContent=days; if(h) h.textContent=pad(hours); if(m) m.textContent=pad(minutes); if(s) s.textContent=pad(seconds);
+  }
+  updateWeddingCountdown(); setInterval(updateWeddingCountdown, 1000);
+})();
+</script>
+
+
+<style id="wc_float_menu_scroll_fix_20260612">
+/* 첫 화면에서는 빠른 메뉴 숨김, 인사말 이후부터 표시 */
+.wc_float_menu{
+  transition: opacity .28s ease, transform .28s ease !important;
+}
+.wc_float_menu.wc_menu_hidden{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translateX(28px)!important;
+}
+</style>
+<script id="wc_float_menu_scroll_script_20260612">
+(function(){
+  function updateFloatMenu(){
+    var menu=document.querySelector('.wc_float_menu');
+    if(!menu) return;
+    var threshold=window.innerHeight*0.8;
+    if(window.scrollY < threshold){
+      menu.classList.add('wc_menu_hidden');
+    }else{
+      menu.classList.remove('wc_menu_hidden');
+    }
+  }
+  window.addEventListener('scroll', updateFloatMenu, {passive:true});
+  window.addEventListener('resize', updateFloatMenu);
+  document.addEventListener('DOMContentLoaded', updateFloatMenu);
+  updateFloatMenu();
 })();
 </script>
 
