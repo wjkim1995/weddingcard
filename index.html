@@ -10,6 +10,7 @@
 <meta name="referrer" content="no-referrer" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="format-detection" content="telephone=no">
+<link rel="manifest" href='data:application/manifest+json,{"name":"김원재 김민정 모바일 청첩장","short_name":"Wedding","start_url":".","display":"standalone","background_color":"#f9f7f4","theme_color":"#93729B","icons":[{"src":"images/main.png","sizes":"512x512","type":"image/png"}]}' />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes"/>
 <meta property="og:url" content="https://wjkim1995.github.io/weddingcard/">
 <meta property="og:description" content="2026년 10월 11일 일요일">
@@ -78,6 +79,54 @@ i[class^="xi-"]::before, i[class*=" xi-"]::before {content:"" !important;}
 .xi-check-circle-o::before {content:"○" !important;}
 .xi-check-min::before {content:"✓" !important;}
 </style>
+
+<style id="custom_upgrade_style">
+/* ===== Custom Wedding Card Upgrade ===== */
+:root{--wc-main:#93729B;--wc-soft:#f2eef3;--wc-text:#525252;--wc-white:#fff;}
+html{scroll-behavior:smooth;}
+body{background:#f9f7f4;}
+.main_img_wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.06) 45%,rgba(0,0,0,.30));pointer-events:none;z-index:1;}
+.main_img_wrap .main_name,.main_img_wrap .main_b_txt,.main_img_wrap .gradient_top,.main_img_wrap .gradient_bottom{position:relative;z-index:2;}
+.wc_upgrade_section{padding:58px 28px;text-align:center;background:#fff;box-sizing:border-box;}
+.wc_upgrade_section:nth-of-type(even){background:#fbf8fb;}
+.wc_upgrade_title{font-family:JejuMyeongjo,serif!important;color:var(--wc-main)!important;font-size:1.25rem!important;margin:0 0 20px!important;letter-spacing:.04em;}
+.wc_love_quote{padding:34px 24px;background:#f9f7f4;text-align:center;line-height:1.9;font-size:.98rem!important;color:#666!important;}
+.wc_countdown_box{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:360px;margin:18px auto 0;}
+.wc_countdown_item{background:var(--wc-soft);border-radius:16px;padding:14px 4px;box-shadow:0 6px 18px rgba(147,114,155,.10);}
+.wc_countdown_num{display:block;color:var(--wc-main)!important;font-size:1.35rem!important;font-weight:700;font-family:Arial,sans-serif!important;}
+.wc_countdown_label{display:block;margin-top:5px;color:#777!important;font-size:.72rem!important;font-family:Arial,sans-serif!important;}
+.wc_story{max-width:330px;margin:0 auto;text-align:left;position:relative;}
+.wc_story::before{content:"";position:absolute;left:64px;top:8px;bottom:8px;width:1px;background:#dacdde;}
+.wc_story_item{display:grid;grid-template-columns:54px 1fr;gap:26px;position:relative;margin:22px 0;}
+.wc_story_year{color:var(--wc-main)!important;font-weight:bold!important;text-align:right;font-family:Arial,sans-serif!important;}
+.wc_story_text{background:#fff;border:1px solid #eee;border-radius:14px;padding:13px 14px;line-height:1.7;box-shadow:0 4px 16px rgba(0,0,0,.04);}
+.wc_dress_chips{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.wc_chip{border:1px solid #ddd;border-radius:999px;padding:9px 14px;background:#fff;color:#666!important;font-size:.84rem!important;}
+.wc_faq{max-width:360px;margin:0 auto;text-align:left;}
+.wc_faq details{background:#fff;border:1px solid #eee;border-radius:14px;margin:10px 0;padding:0 15px;box-shadow:0 4px 14px rgba(0,0,0,.035);}
+.wc_faq summary{cursor:pointer;padding:15px 0;color:#555!important;font-weight:600;list-style:none;}
+.wc_faq summary::-webkit-details-marker{display:none;}
+.wc_faq summary::after{content:"+";float:right;color:var(--wc-main);font-size:1.1rem;}
+.wc_faq details[open] summary::after{content:"−";}
+.wc_faq p{margin:0 0 15px!important;line-height:1.7;color:#666!important;}
+.wc_map_buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 8px;}
+.wc_map_buttons a{display:block;border-radius:10px;background:#f5f1f6;padding:11px 4px;text-decoration:none;color:#5d4a63!important;font-size:.85rem!important;}
+.wc_float_menu{position:fixed;right:14px;bottom:84px;z-index:50;display:flex;flex-direction:column;gap:8px;}
+.wc_float_menu a,.wc_music_btn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.16);font-size:18px!important;border:1px solid rgba(147,114,155,.18);}
+.wc_music_btn{position:fixed;right:14px;top:16px;z-index:55;cursor:pointer;color:#6d5274!important;}
+.wc_toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:rgba(50,50,50,.92);color:#fff!important;padding:12px 18px;border-radius:999px;z-index:999999;opacity:0;transition:.25s;pointer-events:none;max-width:82%;text-align:center;font-size:.86rem!important;}
+.wc_toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.wc_lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:99999;align-items:center;justify-content:center;}
+.wc_lightbox.show{display:flex;}
+.wc_lightbox img{max-width:92vw;max-height:82vh;object-fit:contain;pointer-events:auto!important;}
+.wc_lightbox button{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:999px;width:42px;height:42px;font-size:24px;}
+.wc_lightbox_close{top:18px;right:18px}.wc_lightbox_prev{left:18px}.wc_lightbox_next{right:18px}
+.wc_petals{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden;}
+.wc_petal{position:absolute;top:-30px;animation:wcFall linear forwards;color:#f1c7d9;opacity:.75;text-shadow:0 1px 4px rgba(255,255,255,.6);}
+@keyframes wcFall{to{transform:translate3d(var(--x),105vh,0) rotate(360deg);opacity:0;}}
+@media(max-width:430px){.wc_upgrade_section{padding:50px 22px}.wc_countdown_box{gap:6px}.wc_countdown_num{font-size:1.15rem!important}.wc_float_menu{right:10px;bottom:76px}.wc_float_menu a,.wc_music_btn{width:38px;height:38px}.wc_map_buttons{grid-template-columns:1fr;}}
+</style>
+
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <!-- Google Tag Manager (noscript) -->
@@ -526,7 +575,45 @@ var swiper = new Swiper(".gallery1", {
   </script>
                 </div>
                           </div>
-                      <div class="map_wrap anchor_5 wrap_padding">
+                      
+<div class="wc_love_quote offset">
+  “서로 다른 색으로 만나<br>이제 가장 어울리는 색이 되었습니다.”<br><br>
+  <span class="theme_1_color">김원재 · 김민정</span>
+</div>
+<div class="wc_upgrade_section wc_countdown_wrap anchor_countdown">
+  <p class="wc_upgrade_title">Wedding Countdown</p>
+  <p>결혼식까지 남은 시간</p>
+  <div class="wc_countdown_box" aria-label="결혼식 카운트다운">
+    <div class="wc_countdown_item"><span id="wc_days" class="wc_countdown_num">-</span><span class="wc_countdown_label">DAYS</span></div>
+    <div class="wc_countdown_item"><span id="wc_hours" class="wc_countdown_num">-</span><span class="wc_countdown_label">HOURS</span></div>
+    <div class="wc_countdown_item"><span id="wc_minutes" class="wc_countdown_num">-</span><span class="wc_countdown_label">MIN</span></div>
+    <div class="wc_countdown_item"><span id="wc_seconds" class="wc_countdown_num">-</span><span class="wc_countdown_label">SEC</span></div>
+  </div>
+</div>
+<div class="wc_upgrade_section wc_story_wrap anchor_story">
+  <p class="wc_upgrade_title">Our Story</p>
+  <div class="wc_story">
+    <div class="wc_story_item"><div class="wc_story_year">첫 만남</div><div class="wc_story_text">서로 다른 계절처럼 만나 자연스럽게 가까워졌습니다.</div></div>
+    <div class="wc_story_item"><div class="wc_story_year">함께</div><div class="wc_story_text">평범한 하루들이 쌓여 가장 소중한 시간이 되었습니다.</div></div>
+    <div class="wc_story_item"><div class="wc_story_year">2026</div><div class="wc_story_text">부부라는 이름으로 같은 방향을 바라보려 합니다.</div></div>
+  </div>
+</div>
+<div class="wc_upgrade_section wc_dress_wrap anchor_dress">
+  <p class="wc_upgrade_title">Dress Code</p>
+  <p>편안하고 단정한 복장으로 함께해 주세요.</p>
+  <div class="wc_dress_chips"><span class="wc_chip">Ivory</span><span class="wc_chip">Beige</span><span class="wc_chip">Soft Pink</span><span class="wc_chip">Black</span></div>
+</div>
+<div class="wc_upgrade_section wc_faq_wrap anchor_faq">
+  <p class="wc_upgrade_title">FAQ</p>
+  <div class="wc_faq">
+    <details><summary>주차가 가능한가요?</summary><p>예식장 주차 안내에 따라 이용 가능하며, 당일 혼잡할 수 있어 여유 있게 도착 부탁드립니다.</p></details>
+    <details><summary>셔틀버스가 있나요?</summary><p>수서역과 빌라드지디 수서 간 셔틀버스가 예식일 10분 간격으로 운행됩니다.</p></details>
+    <details><summary>예식 시작 전 꼭 도착해야 하나요?</summary><p>예식 시작과 함께 특별한 뮤지컬 공연이 준비되어 있어 정시 전 도착해 주시면 감사하겠습니다.</p></details>
+    <details><summary>식사는 어디서 하나요?</summary><p>식사 장소 및 세부 안내는 당일 예식장 안내에 따라 이동해 주시면 됩니다.</p></details>
+  </div>
+</div>
+
+<div class="map_wrap anchor_5 wrap_padding">
                               <div class="offset_3 offset">
 <input type="hidden" id="wd_xpos" name="wd_xpos" value="127.115099679441" readonly="">
 <input type="hidden" id="wd_ypos" name="wd_ypos" value="37.4741471468906" readonly="">
@@ -535,6 +622,7 @@ var swiper = new Swiper(".gallery1", {
     <p data-name="card_hall" class="map_hall">빌라드지디 수서</p>
     <p data-name="card_hall_address" class="map_ad">서울특별시 강남구 밤고개로21길 79</p>
     <span data-name="card_hall_number" class="map_call">02-543-2555</span>
+    <div class="wc_map_buttons"><a href="https://map.kakao.com/link/to/빌라드지디 수서,37.4741471468906,127.115099679441" target="_blank" rel="noopener">카카오맵</a><a href="https://map.naver.com/p/search/빌라드지디 수서" target="_blank" rel="noopener">네이버지도</a><a href="https://apis.openapi.sk.com/tmap/app/routes?name=빌라드지디 수서&lon=127.115099679441&lat=37.4741471468906" target="_blank" rel="noopener">티맵</a></div>
         <p class="navi_in" onclick="openNavi();">
   <span class="local_icon">🚗</span>Kakao<span>navi</span>
 </p>
@@ -1245,6 +1333,109 @@ a[data-id="bride_pa2_card"] {
   align-items: center !important;
 }
 </style>
+
+
+<div class="wc_float_menu" aria-label="빠른 메뉴">
+  <a href="#invite_wrap" title="처음">🏠</a>
+  <a href="javascript:void(0)" onclick="document.querySelector('.album_wrap')?.scrollIntoView({behavior:'smooth'});" title="앨범">📷</a>
+  <a href="javascript:void(0)" onclick="document.querySelector('.map_wrap')?.scrollIntoView({behavior:'smooth'});" title="오시는 길">📍</a>
+  <a href="javascript:void(0)" onclick="document.querySelector('.account_wrap')?.scrollIntoView({behavior:'smooth'});" title="계좌">💌</a>
+  <a href="javascript:void(0)" onclick="document.querySelector('.attend_wrap')?.scrollIntoView({behavior:'smooth'});" title="참석여부">✓</a>
+</div>
+<button type="button" class="wc_music_btn" aria-label="배경음악 켜기/끄기">♪</button>
+<div class="wc_toast" id="wc_toast"></div>
+<div class="wc_lightbox" id="wc_lightbox" aria-hidden="true">
+  <button type="button" class="wc_lightbox_close" aria-label="닫기">×</button>
+  <button type="button" class="wc_lightbox_prev" aria-label="이전">‹</button>
+  <img src="" alt="웨딩 사진 크게 보기" id="wc_lightbox_img">
+  <button type="button" class="wc_lightbox_next" aria-label="다음">›</button>
+</div>
+<div class="wc_petals" id="wc_petals"></div>
+<script id="custom_upgrade_script">
+(function(){
+  var weddingDate = new Date('2026-10-11T16:00:00+09:00');
+  function pad(n){return String(n).padStart(2,'0');}
+  function updateCountdown(){
+    var diff = weddingDate - new Date();
+    if(diff < 0) diff = 0;
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor(diff % 86400000 / 3600000);
+    var minutes = Math.floor(diff % 3600000 / 60000);
+    var seconds = Math.floor(diff % 60000 / 1000);
+    var el;
+    if(el=document.getElementById('wc_days')) el.textContent = days;
+    if(el=document.getElementById('wc_hours')) el.textContent = pad(hours);
+    if(el=document.getElementById('wc_minutes')) el.textContent = pad(minutes);
+    if(el=document.getElementById('wc_seconds')) el.textContent = pad(seconds);
+  }
+  updateCountdown(); setInterval(updateCountdown,1000);
+
+  window.wcToast = function(msg){
+    var t=document.getElementById('wc_toast'); if(!t){alert(msg);return;}
+    t.innerHTML=msg; t.classList.add('show'); clearTimeout(window.__wcToastTimer);
+    window.__wcToastTimer=setTimeout(function(){t.classList.remove('show');},1800);
+  };
+  var oldAlert = window.alert;
+  window.alert = function(msg){ if(String(msg).indexOf('복사')>-1 || String(msg).indexOf('등록')>-1){wcToast(msg);} else {oldAlert(msg);} };
+
+  function copyText(text,label){
+    if(!text || !String(text).trim()){wcToast('복사할 내용이 없습니다.');return;}
+    var done=function(){wcToast('✅ 복사되었습니다.<br>'+label);};
+    if(navigator.clipboard && window.isSecureContext){navigator.clipboard.writeText(text).then(done).catch(function(){copyTextFallback(text);done();});}
+    else{copyTextFallback(text);done();}
+  }
+  function getAccount(btn){
+    var box=btn.closest('.account_cover'); if(!box) return null;
+    var ps=box.querySelectorAll('.article1 p');
+    var bankNum=ps[0]?ps[0].innerText.trim():''; var name=ps[1]?ps[1].innerText.trim():'';
+    return {text:bankNum.replace(/\s+/g,' ')+' '+name, label:bankNum+'<br>'+name};
+  }
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('[id^="copybtn"]');
+    if(btn){e.preventDefault(); e.stopPropagation(); var a=getAccount(btn); if(a) copyText(a.text,a.label);}
+  },true);
+
+  document.querySelectorAll('img').forEach(function(img){img.setAttribute('loading','lazy'); img.setAttribute('decoding','async');});
+
+  // 랜덤 메인 이미지: 파일이 없으면 자동으로 기존 main.png 유지
+  var main=document.getElementById('skin_main_img');
+  if(main){
+    var candidates=['images/main.png','images/main1.png','images/main2.png','images/photo1.png','images/photo2.png'];
+    var pick=candidates[Math.floor(Math.random()*candidates.length)];
+    var test=new Image(); test.onload=function(){main.src=pick;}; test.src=pick;
+  }
+
+  var galleryImgs=Array.prototype.slice.call(document.querySelectorAll('.album_inner img'));
+  var lightbox=document.getElementById('wc_lightbox'), lightImg=document.getElementById('wc_lightbox_img'); var idx=0;
+  function showLight(i){ if(!galleryImgs.length) return; idx=(i+galleryImgs.length)%galleryImgs.length; lightImg.src=galleryImgs[idx].src; lightbox.classList.add('show'); lightbox.setAttribute('aria-hidden','false');}
+  galleryImgs.forEach(function(img,i){ img.style.cursor='zoom-in'; img.style.pointerEvents='auto'; img.addEventListener('click',function(){showLight(i);}); });
+  document.querySelector('.wc_lightbox_close').onclick=function(){lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden','true');};
+  document.querySelector('.wc_lightbox_prev').onclick=function(){showLight(idx-1);};
+  document.querySelector('.wc_lightbox_next').onclick=function(){showLight(idx+1);};
+  lightbox.addEventListener('click',function(e){if(e.target===lightbox) document.querySelector('.wc_lightbox_close').click();});
+
+  var musicBtn=document.querySelector('.wc_music_btn');
+  musicBtn.addEventListener('click',function(){
+    var bgm=document.getElementById('skin_bgm'); if(!bgm) return;
+    if(bgm.paused){bgm.play().then(function(){musicBtn.textContent='♪'; wcToast('배경음악 ON');}).catch(function(){wcToast('브라우저 정책상 화면을 한 번 터치 후 재생됩니다.');});}
+    else{bgm.pause(); musicBtn.textContent='♩'; wcToast('배경음악 OFF');}
+  });
+
+  // 꽃잎 애니메이션
+  var petalWrap=document.getElementById('wc_petals');
+  function makePetal(){
+    if(!petalWrap) return; var s=document.createElement('span'); s.className='wc_petal'; s.textContent=Math.random()>.5?'♡':'✿';
+    s.style.left=(Math.random()*100)+'vw'; s.style.fontSize=(12+Math.random()*14)+'px'; s.style.setProperty('--x',(Math.random()*80-40)+'px');
+    s.style.animationDuration=(5+Math.random()*5)+'s'; petalWrap.appendChild(s); setTimeout(function(){s.remove();},10000);
+  }
+  for(var i=0;i<18;i++) setTimeout(makePetal,i*180);
+  var petalTimer=setInterval(makePetal,900); setTimeout(function(){clearInterval(petalTimer);},16000);
+
+  // 스크롤 등장 효과
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity=1;en.target.style.transform='translateY(0)';}})},{threshold:.12});
+  document.querySelectorAll('.offset,.wc_upgrade_section').forEach(function(el){el.style.opacity=.001;el.style.transform='translateY(18px)';el.style.transition='opacity .8s ease, transform .8s ease';observer.observe(el);});
+})();
+</script>
 
 </body>
 
