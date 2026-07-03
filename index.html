@@ -475,15 +475,6 @@ $(document).ready(function() {
               <div class="swiper-slide skin_g_1">
           <img src="images/photo2.png" alt="" id="rotate_sort_1">
         </div>
-              <div class="swiper-slide skin_g_2">
-          <img src="images/photo3.png" alt="" id="rotate_sort_2">
-        </div>
-              <div class="swiper-slide skin_g_3">
-          <img src="images/photo4.png" alt="" id="rotate_sort_3">
-        </div>
-              <div class="swiper-slide skin_g_4">
-          <img src="images/photo5.png" alt="" id="rotate_sort_4">
-        </div>
           </div>
   </div>
   <div class="swiper-button-next"></div>
@@ -492,24 +483,34 @@ $(document).ready(function() {
 </div>
 
 <script type="text/javascript">
-
-// 가로앨범
-var swiper = new Swiper(".gallery1", {
-  // loop: true,
-  // autoHeight : true,
-  pagination: {
-    el: ".swiper-pagination",
-    type: 'fraction',
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  on: {
-    slideChange: function () {
-      $('.drag_box').hide();
+// 가로앨범 - GitHub Pages 이미지 로딩 후 5장 전체 인식 보정
+$(window).on('load', function () {
+  var swiper = new Swiper(".gallery1", {
+    observer: true,
+    observeParents: true,
+    watchOverflow: false,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      slideChange: function () {
+        $(".drag_box").hide();
+      }
     }
-  }
+  });
+
+  setTimeout(function () {
+    swiper.update();
+  }, 500);
+
+  setTimeout(function () {
+    swiper.update();
+  }, 1500);
 });
 </script>
                                                       </div>
