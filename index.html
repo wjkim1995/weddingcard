@@ -88,6 +88,46 @@ i[class^="xi-"]::before, i[class*=" xi-"]::before {content:"" !important;}
 }
 </style>
 
+
+<style id="photo-event-style">
+  #evetything .photo_event_wrap {
+    margin: 0 auto 18px;
+    padding: 20px 16px;
+    border: 1px solid #eadfcf;
+    border-radius: 14px;
+    background: #fffaf6;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  #evetything .photo_event_title {
+    margin: 0 0 9px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #525252;
+  }
+  #evetything .photo_event_text {
+    margin: 0 0 15px;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #666;
+  }
+  #evetything .photo_upload_btn {
+    display: inline-block;
+    min-width: 190px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: #93729B;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    box-sizing: border-box;
+  }
+  #evetything .photo_upload_btn:active {
+    opacity: 0.82;
+  }
+</style>
+
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <!-- Google Tag Manager (noscript) -->
@@ -1104,22 +1144,21 @@ function flowerPopclose(){
           <span class="kakao_btn" onclick="shareKakao();">
         <span class="local_icon"></span> <font id="kakao-link-btn">🌹카카오톡으로 공유하기🌹</font>
       </span>
+        
+      <div class="photo_event_wrap">
+        <p class="photo_event_title">📷 사진 이벤트</p>
+        <p class="photo_event_text">
+          결혼식에서 촬영한 사진을 공유해 주세요.<br>
+          추첨을 통해 소정의 선물을 드립니다. 🎁
+        </p>
+        <a class="photo_upload_btn" href="https://drive.google.com/drive/folders/1wDGTKpahV2mbbaQh7gKN_4gEPuTUACWO?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          📎 사진 첨부하기
+        </a>
+      </div>
+
         <span class="url_btn" onclick="copyInviteUrl();">
        <font>🌼청첩장 주소 복사하기🌼</font>
     </span>
-<div class="photo_event_wrap" style="margin:16px auto 20px;padding:18px;border:1px solid #eadfcf;border-radius:14px;background:#fff8f2;text-align:center;">
-  <p style="font-size:1.1rem;font-weight:bold;margin-bottom:8px;">📸 사진 인증 이벤트</p>
-  <p style="line-height:1.7;margin-bottom:14px;">
-    청첩장을 공유하거나 예식 사진을 업로드해 주세요.<br>
-    <strong>추첨을 통해 소정의 경품</strong>을 드립니다. 🎁
-  </p>
-  <a href="https://naver.me/FYr1uElI" target="_blank"
-     style="display:inline-block;background:#03C75A;color:#fff;text-decoration:none;
-            padding:12px 18px;border-radius:8px;font-weight:bold;">
-    네이버 MYBOX 업로드하기
-  </a>
-</div>
-
   </div>
 </div>
                           </div>
