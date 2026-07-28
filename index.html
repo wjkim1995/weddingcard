@@ -78,6 +78,16 @@ i[class^="xi-"]::before, i[class*=" xi-"]::before {content:"" !important;}
 .xi-check-circle-o::before {content:"○" !important;}
 .xi-check-min::before {content:"✓" !important;}
 </style>
+
+<style id="remove-requested-items">
+/* 방명록, 참석 여부, 카카오톡 공유하기만 숨김 */
+.guest_book_wrap,
+.attend_wrap,
+.share_wrap .kakao_btn {
+  display: none !important;
+}
+</style>
+
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <!-- Google Tag Manager (noscript) -->
