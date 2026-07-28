@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://wjkim1995.github.io/weddingcard/">
 <meta property="og:description" content="2026년 10월 11일 일요일">
 <meta property="og:title" content="저희, 결혼합니다">
-      <meta property="og:image" content="https://wjkim1995.github.io/weddingcard/images/main.png">
+      <meta property="og:image" content="https://wjkim1995.github.io/weddingcard/images/main.JPG">
   <link rel="icon" type="image/png" sizes="16x16" href="https://directwedcard.com/card/img/favicon/favicon-16x16.png">
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -338,7 +338,7 @@ else {
               <source id="moving_video" src="https://directwedcard.com/card/movie/heart2.mp4">
             </video>
           
-                                                    <img src="images/main.png" alt="" id="skin_main_img" oncontextmenu="return false" style="-webkit-touch-callout:none">
+                                                    <img src="images/main.JPG" alt="" id="skin_main_img" oncontextmenu="return false" style="-webkit-touch-callout:none">
                                               <p class="main_name">
             <span data-name="groom_name">김원재</span>
             <span class="groom_line"></span>
@@ -548,14 +548,9 @@ $(document).ready(function() {
   <p>밀어서 더 많은<BR> 이미지 보기</p>
 </div>
   <div class="swiper mySwiper gallery1">
-    <div class="swiper-wrapper">
-              <div class="swiper-slide skin_g_0">
-          <img src="images/photo1.png" alt="" id="rotate_sort_0">
-        </div>
-              <div class="swiper-slide skin_g_1">
-          <img src="images/photo2.png" alt="" id="rotate_sort_1">
-        </div>
-          </div>
+    <div class="swiper-wrapper" id="dynamic-gallery">
+      <!-- images 폴더의 사진이 자동으로 들어갑니다. -->
+    </div>
   </div>
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
@@ -563,35 +558,105 @@ $(document).ready(function() {
 </div>
 
 <script type="text/javascript">
-// 가로앨범 - GitHub Pages 이미지 로딩 후 5장 전체 인식 보정
-$(window).on('load', function () {
-  var swiper = new Swiper(".gallery1", {
-    observer: true,
-    observeParents: true,
-    watchOverflow: false,
-    pagination: {
-      el: ".swiper-pagination",
-      type: "fraction",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    on: {
-      slideChange: function () {
-        $(".drag_box").hide();
+(function () {
+  const GITHUB_API =
+    "https://api.github.com/repos/wjkim1995/weddingcard/contents/images?ref=main";
+
+  const IMAGE_EXTENSION =
+    /\.(?:jpe?g|png|gif|webp|avif|bmp|svg)$/i;
+
+  function isAlbumImage(file) {
+    if (!file || file.type !== "file") return false;
+    if (!IMAGE_EXTENSION.test(file.name)) return false;
+
+    // main.jpg, main.JPG, main.png 등은 메인 전용이므로 앨범에서 제외
+    return !/^main\.(?:jpe?g|png|gif|webp|avif|bmp|svg)$/i.test(file.name);
+  }
+
+  function createSlide(file, index) {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide skin_g_" + index;
+
+    const image = document.createElement("img");
+    image.src = file.download_url;
+    image.alt = "웨딩 앨범 사진 " + (index + 1);
+    image.id = "rotate_sort_" + index;
+    image.loading = index < 2 ? "eager" : "lazy";
+    image.decoding = "async";
+    image.setAttribute("oncontextmenu", "return false");
+    image.style.webkitTouchCallout = "none";
+
+    slide.appendChild(image);
+    return slide;
+  }
+
+  async function loadGallery() {
+    const gallery = document.getElementById("dynamic-gallery");
+    if (!gallery) return;
+
+    try {
+      const response = await fetch(GITHUB_API, {
+        headers: { Accept: "application/vnd.github+json" },
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("GitHub 이미지 목록을 불러오지 못했습니다.");
       }
+
+      const files = await response.json();
+      const albumFiles = files
+        .filter(isAlbumImage)
+        .sort(function (a, b) {
+          return a.name.localeCompare(b.name, undefined, {
+            numeric: true,
+            sensitivity: "base"
+          });
+        });
+
+      gallery.replaceChildren();
+
+      albumFiles.forEach(function (file, index) {
+        gallery.appendChild(createSlide(file, index));
+      });
+
+      if (!albumFiles.length) {
+        const album = document.querySelector(".album_wrap");
+        if (album) album.style.display = "none";
+        return;
+      }
+
+      const swiper = new Swiper(".gallery1", {
+        observer: true,
+        observeParents: true,
+        watchOverflow: false,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction"
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        on: {
+          slideChange: function () {
+            $(".drag_box").hide();
+          }
+        }
+      });
+
+      swiper.update();
+      setTimeout(function () { swiper.update(); }, 500);
+      setTimeout(function () { swiper.update(); }, 1500);
+    } catch (error) {
+      console.error(error);
+      const album = document.querySelector(".album_wrap");
+      if (album) album.style.display = "none";
     }
-  });
+  }
 
-  setTimeout(function () {
-    swiper.update();
-  }, 500);
-
-  setTimeout(function () {
-    swiper.update();
-  }, 1500);
-});
+  window.addEventListener("load", loadGallery);
+})();
 </script>
                                                       </div>
                           </div>
@@ -1218,7 +1283,7 @@ function flowerPopclose(){
   var INVITE_URL = "https://wjkim1995.github.io/weddingcard/";
   var INVITE_TITLE = "저희, 결혼합니다";
   var INVITE_DESC = "2026년 10월 11일 PM 04시 00분";
-  var INVITE_IMAGE = "https://wjkim1995.github.io/weddingcard/images/main.png";
+  var INVITE_IMAGE = "https://wjkim1995.github.io/weddingcard/images/main.JPG";
 
   try {
     if (window.Kakao && !Kakao.isInitialized()) {
