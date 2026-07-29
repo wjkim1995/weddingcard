@@ -314,6 +314,50 @@ html, body,
 }
 </style>
 
+
+<style id="album-grid-style">
+/* Album 제목 아래 첫 9장(3×3) + 나머지 사진 슬라이드 */
+#evetything .album_grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0 0 28px;
+  padding: 0;
+}
+#evetything .album_grid_item {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #eee7e2;
+  cursor: default;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#evetything .album_grid_item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .25s ease, opacity .25s ease;
+}
+#evetything .album_slider_label {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: .82rem !important;
+  color: #8B7D78 !important;
+  letter-spacing: .02em;
+}
+@media (max-width: 360px) {
+  #evetything .album_grid { gap: 4px; }
+}
+</style>
+
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <!-- Google Tag Manager (noscript) -->
@@ -747,6 +791,8 @@ $(document).ready(function() {
                               <div class="offset_6 offset">
                                                             <div class="album_inner skin_gallery_type album_show" id="gallery_type_1">
   <p class="section_tit theme_1_color">Album</p>
+  <div class="album_grid" id="album-grid" aria-label="웨딩 앨범 썸네일"></div>
+  <p class="album_slider_label" id="album-slider-label">More Photos</p>
   <div class="drag_box">
   <div class="ig_box">
   </div>
@@ -795,9 +841,24 @@ $(document).ready(function() {
     return slide;
   }
 
+  function createGridItem(file, index) {
+    const item = document.createElement("div");
+    item.className = "album_grid_item";
+
+    const image = document.createElement("img");
+    image.src = file.download_url;
+    image.alt = "웨딩 앨범 사진 " + (index + 1);
+    image.loading = index < 6 ? "eager" : "lazy";
+    image.decoding = "async";
+
+    item.appendChild(image);
+    return item;
+  }
+
   async function loadGallery() {
     const gallery = document.getElementById("dynamic-gallery");
-    if (!gallery) return;
+    const grid = document.getElementById("album-grid");
+    if (!gallery || !grid) return;
 
     try {
       const response = await fetch(GITHUB_API, {
@@ -820,14 +881,39 @@ $(document).ready(function() {
         });
 
       gallery.replaceChildren();
+      grid.replaceChildren();
 
-      albumFiles.forEach(function (file, index) {
+      const gridFiles = albumFiles.slice(0, 9);
+      const slideFiles = albumFiles.slice(9);
+
+      gridFiles.forEach(function (file, index) {
+        grid.appendChild(createGridItem(file, index));
+      });
+
+      slideFiles.forEach(function (file, index) {
         gallery.appendChild(createSlide(file, index));
       });
 
       if (!albumFiles.length) {
         const album = document.querySelector(".album_wrap");
         if (album) album.style.display = "none";
+        return;
+      }
+
+      const slider = document.querySelector(".gallery1");
+      const sliderLabel = document.getElementById("album-slider-label");
+      const dragBox = document.querySelector(".album_wrap .drag_box");
+      const nextButton = document.querySelector(".album_wrap .swiper-button-next");
+      const prevButton = document.querySelector(".album_wrap .swiper-button-prev");
+      const pagination = document.querySelector(".album_wrap .swiper-pagination");
+
+      if (!slideFiles.length) {
+        if (slider) slider.style.display = "none";
+        if (sliderLabel) sliderLabel.style.display = "none";
+        if (dragBox) dragBox.style.display = "none";
+        if (nextButton) nextButton.style.display = "none";
+        if (prevButton) prevButton.style.display = "none";
+        if (pagination) pagination.style.display = "none";
         return;
       }
 
