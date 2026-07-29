@@ -353,6 +353,16 @@ html, body,
   color: #8B7D78 !important;
   letter-spacing: .02em;
 }
+#evetything .album_slider_wrap {
+  position: relative;
+  width: 100%;
+}
+/* 밀어서 보기 안내는 바둑판이 아니라 슬라이드 첫 사진 위에 표시 */
+#evetything .album_slider_wrap .drag_box {
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 8 !important;
+}
 @media (max-width: 360px) {
   #evetything .album_grid { gap: 4px; }
 }
@@ -793,19 +803,20 @@ $(document).ready(function() {
   <p class="section_tit theme_1_color">Album</p>
   <div class="album_grid" id="album-grid" aria-label="웨딩 앨범 썸네일"></div>
   <p class="album_slider_label" id="album-slider-label">More Photos</p>
-  <div class="drag_box">
-  <div class="ig_box">
-  </div>
-  <p>밀어서 더 많은<BR> 이미지 보기</p>
-</div>
-  <div class="swiper mySwiper gallery1">
-    <div class="swiper-wrapper" id="dynamic-gallery">
-      <!-- images 폴더의 사진이 자동으로 들어갑니다. -->
+  <div class="album_slider_wrap">
+    <div class="drag_box">
+      <div class="ig_box"></div>
+      <p>밀어서 더 많은<BR> 이미지 보기</p>
     </div>
+    <div class="swiper mySwiper gallery1">
+      <div class="swiper-wrapper" id="dynamic-gallery">
+        <!-- images 폴더의 사진이 자동으로 들어갑니다. -->
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
   </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
 </div>
 
 <script type="text/javascript">
