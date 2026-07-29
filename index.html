@@ -119,7 +119,7 @@ i[class^="xi-"]::before, i[class*=" xi-"]::before {content:"" !important;}
     padding: 12px 18px;
     border: 0;
     border-radius: 8px;
-    background: #93729B;
+    background: #B58A83;
     color: #fff;
     font-family: inherit;
     font-size: 0.92rem;
@@ -171,12 +171,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   #evetything * {font-size: 0.9375rem; font-family: JejuMyeongjo; color: #525252;}
   #evetything .em_ch {font-family: WONBatang !important; font-size: 0.875rem;}
 
-  #evetything .theme_1_back {background: #93729B !important;}
-  #evetything .theme_1_color {color: #93729B !important;}
-  #evetything .theme_1_border {border: 1px solid #93729B !important;}
-  #evetything .theme_2_back {background: #f2eef3 !important;}
-  #evetything .theme_2_color {color: #f2eef3 !important;}
-  #evetything .theme_2_border {color: #f2eef3 !important;}
+  #evetything .theme_1_back {background: #B58A83 !important;}
+  #evetything .theme_1_color {color: #B58A83 !important;}
+  #evetything .theme_1_border {border: 1px solid #B58A83 !important;}
+  #evetything .theme_2_back {background: #F7EFEA !important;}
+  #evetything .theme_2_color {color: #F7EFEA !important;}
+  #evetything .theme_2_border {color: #F7EFEA !important;}
 
   @media screen and (max-width:380px){
   #evetything .greeting_msg {font-size: 0.875rem;}
@@ -277,67 +277,25 @@ $(function(){
 }
 </style>
 
-<style>
-#intro_2.video_intro {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  height: 100dvh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: #000;
-  z-index: 99999;
-}
-#intro_2.video_intro video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-}
-</style>
-
-<div id="intro_2" class="card video_intro">
-  <video id="cover_intro_video" autoplay muted playsinline webkit-playsinline preload="auto">
-    <source src="cover-video.mp4" type="video/mp4">
-  </video>
-</div>
-
+<div id="intro_2" class="card theme_1_back"
+  style="">
+  <div class="theme_gra">  <div class="frame" style="border:1px solid rgba(255, 255, 255, 0.3);">
+  <div class="inner">
+      <div class="title">
+        <p class="theme_1_color">김원재</p>
+        <p class="theme_1_color">&</p>
+        <p class="theme_1_color">김민정</p>
+      </div>
+        <p class="point theme_1_color">저희 결혼합니다</p>
+    </div>
+  </div>
+  </div></div>
 <script type="text/javascript">
 $(function() {
-  var intro = $('#intro_2');
-  var video = document.getElementById('cover_intro_video');
-  var closed = false;
+    $('#intro_2').delay(4500).fadeOut('fast');
+    $('.scroll_wrap').delay(4500).fadeOut('fast');
+  });
 
-  function closeIntro() {
-    if (closed) return;
-    closed = true;
-    intro.fadeOut(500, function () {
-      if (video) video.pause();
-      intro.remove();
-    });
-    $('.scroll_wrap').fadeOut(500);
-  }
-
-  if (video) {
-    video.muted = true;
-    var playPromise = video.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(function () {});
-    }
-    video.addEventListener('timeupdate', function () {
-      if (video.currentTime >= 6) closeIntro();
-    });
-    video.addEventListener('ended', closeIntro);
-  }
-
-  setTimeout(closeIntro, 6000);
-});
 </script>
           <style media="screen">
 .scroll_wrap{position: fixed;  height: 40vh; width: 420px; left: 50%; transform: translateX(-50%);background:linear-gradient(0deg,#4d4d4d 0%, rgb(108 108 108 / 50%) 82%, rgba(255,255,255,0) 100%); z-index: 9; bottom: 0px;display: flex;justify-content: center;}
@@ -387,10 +345,6 @@ else {
               </div>
                                     <audio id="skin_bgm" controls loop autoplay style="display:none;"><source src="https://directwedcard.com/card/bgm/bgm.mp3" type="audio/mp3"></audio>
                                             <div class="main_img_wrap offset_0 offset">
-                      <video id="moving_video11" autoplay="autoplay" loop="loop" muted="muted" poster="data:image/gif;base64,R0lGODlhAQABAAAAACw=" playsinline style="opacity:0;mix-blend-mode: screen;position: absolute;left:0;top:0%; width:100%;display:block;">
-              <source id="moving_video" src="https://directwedcard.com/card/movie/heart2.mp4">
-            </video>
-          
                                                     <img src="images/main.JPG" alt="" id="skin_main_img" oncontextmenu="return false" style="-webkit-touch-callout:none">
                                               <p class="main_name">
             <span data-name="groom_name">김원재</span>
@@ -1493,7 +1447,7 @@ a[data-id="bride_pa2_card"] {
 
 <style id="mj_final_fix_style">
 /* ===== MJ final clean fix ===== */
-:root{--mj-main:#93729B;--mj-soft:#f2eef3;--mj-text:#525252;}
+:root{--mj-main:#B58A83;--mj-soft:#F7EFEA;--mj-text:#525252;}
 html{scroll-behavior:smooth;}
 .dday_inner.remain{display:none!important;}
 .market_wrap{display:none!important;}
@@ -1689,8 +1643,5 @@ body.mj_popup_open{overflow:hidden!important;}
 </html>
 <script>
 $(window).on('load', function () {
-    $('#moving_video11')[0].load();
-    document.getElementById('moving_video11').play();
-    $('#moving_video11').css('opacity','1');
 });
 </script>
