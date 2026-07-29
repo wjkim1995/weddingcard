@@ -183,6 +183,137 @@ html, body,
 }
 </style>
 
+
+<style id="visibility-improvement-theme">
+/* 전체 톤은 유지하되, 본문과 버튼 대비를 높여 가독성 개선 */
+html, body,
+#invite_wrap,
+#animContainer {
+  background: #F4ECE7 !important;
+}
+
+#evetything,
+#evetything .all_wrap,
+#evetything .greeting_wrap,
+#evetything .call_wrap,
+#evetything .calendar_wrap,
+#evetything .album_wrap,
+#evetything .movie_wrap,
+#evetything .map_wrap,
+#evetything .account_wrap,
+#evetything .guest_book_wrap,
+#evetything .attend_wrap,
+#evetything .share_wrap {
+  background: #FBF8F5 !important;
+}
+
+/* 기본 글자색을 조금 더 진하게 */
+#evetything *,
+#evetything .greeting_msg,
+#evetything .way_txt,
+#evetything .map_ad,
+#evetything .map_call,
+#evetything .account_cover,
+#evetything .photo_event_text {
+  color: #4A4543;
+}
+
+/* 포인트 핑크를 살짝 진하게 */
+#evetything .theme_1_color,
+#evetything .section_tit,
+#evetything .way_tit {
+  color: #B8777C !important;
+}
+
+#evetything .theme_1_back,
+#evetything .photo_upload_btn {
+  background: #B8777C !important;
+}
+
+#evetything .theme_1_border {
+  border-color: #C98F94 !important;
+}
+
+/* 계좌/이벤트 박스는 밝은 카드로 분리 */
+#evetything .account_tit,
+#evetything .photo_event_wrap {
+  background: #FFFDFC !important;
+  border: 1px solid #E5D6CF !important;
+  box-shadow: 0 4px 14px rgba(91, 66, 57, 0.06);
+}
+
+#evetything .account_tit span {
+  color: #4A4543 !important;
+  font-weight: 600;
+}
+
+#evetything .photo_event_title {
+  color: #3F3A38 !important;
+}
+
+#evetything .photo_upload_btn {
+  color: #FFFFFF !important;
+}
+</style>
+
+
+<style id="account-photo-event-fix">
+/* 1) 계좌번호 제목 칸: 흰색 삐져나옴 제거 + 버튼색 진하게 */
+#evetything .account_box,
+#evetything .account_list,
+#evetything .account_tit {
+  box-sizing: border-box !important;
+}
+
+#evetything .account_list {
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: transparent !important;
+}
+
+#evetything .account_tit {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 17px 18px !important;
+  border: 0 !important;
+  border-radius: 18px !important;
+  background: #D9B1B4 !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+#evetything .account_tit span,
+#evetything .account_tit i {
+  color: #4A3E3F !important;
+  font-weight: 700 !important;
+}
+
+/* 계좌 버튼 사이 여백 */
+#evetything .groom_account {
+  margin-bottom: 12px !important;
+}
+
+/* 2) 사진 이벤트 바로 위에 보이는 선 제거 */
+#evetything .photo_event_wrap,
+#evetything .photo_event_wrap::before,
+#evetything .photo_event_wrap::after {
+  border-top: 0 !important;
+}
+
+#evetything .photo_event_wrap {
+  margin-top: 18px !important;
+  border: 1px solid #E3D3CB !important;
+}
+
+/* 사진 첨부 버튼도 조금 더 진하게 */
+#evetything .photo_upload_btn {
+  background: #AE7076 !important;
+  color: #FFFFFF !important;
+}
+</style>
+
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <!-- Google Tag Manager (noscript) -->
