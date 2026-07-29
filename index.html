@@ -277,25 +277,67 @@ $(function(){
 }
 </style>
 
-<div id="intro_2" class="card theme_1_back"
-  style="">
-  <div class="theme_gra">  <div class="frame" style="border:1px solid rgba(255, 255, 255, 0.3);">
-  <div class="inner">
-      <div class="title">
-        <p class="theme_1_color">김원재</p>
-        <p class="theme_1_color">&</p>
-        <p class="theme_1_color">김민정</p>
-      </div>
-        <p class="point theme_1_color">저희 결혼합니다</p>
-    </div>
-  </div>
-  </div></div>
+<style>
+#intro_2.video_intro {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+  z-index: 99999;
+}
+#intro_2.video_intro video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+</style>
+
+<div id="intro_2" class="card video_intro">
+  <video id="cover_intro_video" autoplay muted playsinline webkit-playsinline preload="auto">
+    <source src="cover-video.mp4" type="video/mp4">
+  </video>
+</div>
+
 <script type="text/javascript">
 $(function() {
-    $('#intro_2').delay(4500).fadeOut('fast');
-    $('.scroll_wrap').delay(4500).fadeOut('fast');
-  });
+  var intro = $('#intro_2');
+  var video = document.getElementById('cover_intro_video');
+  var closed = false;
 
+  function closeIntro() {
+    if (closed) return;
+    closed = true;
+    intro.fadeOut(500, function () {
+      if (video) video.pause();
+      intro.remove();
+    });
+    $('.scroll_wrap').fadeOut(500);
+  }
+
+  if (video) {
+    video.muted = true;
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(function () {});
+    }
+    video.addEventListener('timeupdate', function () {
+      if (video.currentTime >= 6) closeIntro();
+    });
+    video.addEventListener('ended', closeIntro);
+  }
+
+  setTimeout(closeIntro, 6000);
+});
 </script>
           <style media="screen">
 .scroll_wrap{position: fixed;  height: 40vh; width: 420px; left: 50%; transform: translateX(-50%);background:linear-gradient(0deg,#4d4d4d 0%, rgb(108 108 108 / 50%) 82%, rgba(255,255,255,0) 100%); z-index: 9; bottom: 0px;display: flex;justify-content: center;}
