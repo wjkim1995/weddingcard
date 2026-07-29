@@ -265,37 +265,44 @@ $(function(){
 });
 
 </script>
-          <link rel="stylesheet" href="https://directwedcard.com/card/intro/intro_2.css">
-        
 <style>
-#intro_2 .title p{
-    font-size: 1.3rem !important;
+#intro_2{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:99999;
+  background:#f6ece8;
+  overflow:hidden;
 }
-
-#intro_2 .point{
-    font-size: 1.3rem !important;
+#intro_2 .intro_video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 </style>
-
-<div id="intro_2" class="card theme_1_back"
-  style="">
-  <div class="theme_gra">  <div class="frame" style="border:1px solid rgba(255, 255, 255, 0.3);">
-  <div class="inner">
-      <div class="title">
-        <p class="theme_1_color">김원재</p>
-        <p class="theme_1_color">&</p>
-        <p class="theme_1_color">김민정</p>
-      </div>
-        <p class="point theme_1_color">저희 결혼합니다</p>
-    </div>
-  </div>
-  </div></div>
-<script type="text/javascript">
-$(function() {
-    $('#intro_2').delay(4500).fadeOut('fast');
-    $('.scroll_wrap').delay(4500).fadeOut('fast');
-  });
-
+<div id="intro_2">
+  <video id="intro_video" class="intro_video" autoplay muted playsinline preload="auto">
+    <source src="cover-video(1).mp4" type="video/mp4">
+  </video>
+</div>
+<script>
+$(function(){
+  var intro = document.getElementById('intro_2');
+  var video = document.getElementById('intro_video');
+  var closeIntro = function(){
+    $('#intro_2').fadeOut('fast', function(){ this.remove(); });
+    $('.scroll_wrap').fadeOut('fast');
+  };
+  if(video){
+    video.addEventListener('ended', closeIntro);
+    video.addEventListener('error', closeIntro);
+    var playPromise = video.play();
+    if(playPromise && playPromise.catch){ playPromise.catch(function(){}); }
+  }
+  setTimeout(closeIntro, 15000);
+});
 </script>
           <style media="screen">
 .scroll_wrap{position: fixed;  height: 40vh; width: 420px; left: 50%; transform: translateX(-50%);background:linear-gradient(0deg,#4d4d4d 0%, rgb(108 108 108 / 50%) 82%, rgba(255,255,255,0) 100%); z-index: 9; bottom: 0px;display: flex;justify-content: center;}
